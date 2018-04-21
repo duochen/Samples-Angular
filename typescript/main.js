@@ -1,0 +1,48 @@
+"use strict";
+exports.__esModule = true;
+var Point_1 = require("./Point");
+var like_component_1 = require("./like.component");
+var a;
+var b;
+var c;
+var d;
+var e = [1, 2, 3];
+var f = [1, true, 'a', false];
+var ColorRed = 0;
+var ColorGreen = 1;
+var ColorBlue = 2;
+var Color;
+(function (Color) {
+    Color[Color["Red"] = 0] = "Red";
+    Color[Color["Green"] = 1] = "Green";
+    Color[Color["Blue"] = 2] = "Blue";
+    Color[Color["Purple"] = 3] = "Purple";
+})(Color || (Color = {}));
+;
+var backgrounColor = Color.Red;
+var message;
+message = 'abc';
+var endsWithC = message.endsWith('c');
+var alternativeWay = message.endsWith('c');
+console.log(endsWithC);
+console.log(alternativeWay);
+var log = function (message) {
+    console.log(message);
+};
+var doLog = function (message) { return console.log(message); };
+log("This is a message");
+doLog("That is another message");
+var drawPoint = function (point) {
+    console.log("x: " + point.x + " y:" + point.y);
+};
+drawPoint({ x: 1, y: 2 });
+var p = new Point_1.Point(1, 2);
+p.draw();
+var x = p.x;
+p.x = 10;
+p.draw();
+var q = new Point_1.Point();
+q.draw();
+var component = new like_component_1.LikeComponent(10, true);
+component.onClick();
+console.log('like Count: ' + component.likeCount + " isSelected: " + component.isSelected);
