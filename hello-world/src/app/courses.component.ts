@@ -5,10 +5,11 @@ import { CoursesService } from './courses.service';
     selector: 'courses',   //<courses>
     template: `
         <h2>{{ title }}</h2>
-        <button class="btn btn-primary">Save</button>
+        <button (click)="onSave($event)">Save</button>
         `
 })
 export class CoursesComponent {
+    isActive = false;
     title = "List of courses";
     imageUrl = "http://lorempixel.com/400/200";
     courses; // = ["course1", "course2", "course3"];
@@ -16,5 +17,9 @@ export class CoursesComponent {
 
     constructor(service: CoursesService) {
         this.courses = service.getCourses();
+    }
+
+    onSave($event) {, 
+        console.log("Button was clicked", $event);
     }
 }
