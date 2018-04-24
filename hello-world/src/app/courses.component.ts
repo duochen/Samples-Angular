@@ -4,6 +4,7 @@ import { CoursesService } from './courses.service';
 @Component({
     selector: 'courses',   //<courses>
     template: `
+        {{ text | summary : 10 }}
         <h2>{{ title }}</h2>
         <input [(ngModel)]="email" (keyup.enter)="onKeyUp()"/> <br/>
         <div (click)="onDivClicked">
@@ -11,12 +12,13 @@ import { CoursesService } from './courses.service';
         </div>
         {{ course.title | uppercase }} <br/>
         {{ course.students | number }} <br/>
-        {{ course.rating }} <br/>
+        {{ course.rating | number: '1.2-2'}} <br/>
         {{ course.price }} <br/>
         {{ course.releaseDate }} 
         `
 })
 export class CoursesComponent {
+    text = "this is a test custom pipe. fdfadaasaskfjasldjf;askfjd;safjaksljdfkjsaf;jdsf;kjdasfkjkjdfsa;kjdfasjf;askafja"
     email = "me@example.com";
     isActive = false;
     title = "List of courses";
