@@ -20,12 +20,22 @@ module.exports = function (config) {
       reports: ['html', 'lcovonly', 'text-summary'],
       fixWebpackSourcePaths: true
     },
+    customLaunchers: {
+      'ChromeHeadlessCustom': {
+        base: 'ChromeHeadless',
+        flags: [
+          // We must disable the Chrome sandbox when running Chrome inside Docker (Chrome's sandbox needs
+          // more permissions than Docker allows by default)
+          '--no-sandbox'
+        ],
+      },
+    },    
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadlessCustom'],
     singleRun: false,
     restartOnFileChange: true
   });
