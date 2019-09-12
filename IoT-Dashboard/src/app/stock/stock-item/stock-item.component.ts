@@ -1,13 +1,21 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { SimpleChanges, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterContentChecked, AfterContentInit  } from '@angular/core';
 
 import { Stock } from '../../model/stock';
 
 @Component({
   selector: 'app-stock-item',
   templateUrl: './stock-item.component.html',
-  styleUrls: ['./stock-item.component.scss']
+  styleUrls: ['./stock-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
-export class StockItemComponent implements OnInit {
+export class StockItemComponent implements OnInit, OnChanges,
+                                        OnDestroy, DoCheck,
+                                        AfterContentChecked,
+                                        AfterContentInit,
+                                        AfterViewChecked,
+                                        AfterViewInit {
   @Input() public stock: Stock;
   @Output() private toggleFavoriate: EventEmitter<Stock>;
 
@@ -37,6 +45,8 @@ export class StockItemComponent implements OnInit {
       "color": this.stock.isPositiveChange() ? "green" : "red",
       "font-size": largeChange ? "2.0em" : "1.0em"
     }
+
+    console.log('Stock Item Component - On Init');
  }
 
   // toggleFavorite(event) {
@@ -68,4 +78,36 @@ export class StockItemComponent implements OnInit {
   trackStockByCode(index, stock) {
     return stock.Code;
   }
+
+  changeStockPrice() {
+    this.stock.price += 5;
+  }
+
+  ngAfterViewInit(): void {
+    console.log('Stock Item Component - After View Init');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('Stock Item Component - After View Checked');
+  }
+
+  ngAfterContentInit(): void {
+    console.log('Stock Item Component - After Content Init');
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('Stock Item Component - After Content Checked');
+  }
+
+  ngDoCheck(): void {
+    console.log('Stock Item Component - Do Check');
+  }  
+
+  ngOnDestroy(): void {
+    console.log('Stock Item Component - On Destroy');
+  }
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('Stock Item Component - On Changes - ', changes);
+  }  
 }
