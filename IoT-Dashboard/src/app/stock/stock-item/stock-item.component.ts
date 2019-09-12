@@ -15,7 +15,7 @@ export class StockItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.stock = new Stock('Test Stock Company', 'TSC', 100, 80);
+    this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
     let diff = this.stock.price / this.stock.previousPrice - 1;
     let largeChange = Math.abs(diff) > 0.01;
     this.stockClasses = {
