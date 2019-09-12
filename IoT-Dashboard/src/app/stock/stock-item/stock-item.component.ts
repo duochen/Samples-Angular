@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Stock } from '../../model/stock';
 
@@ -8,32 +8,64 @@ import { Stock } from '../../model/stock';
   styleUrls: ['./stock-item.component.scss']
 })
 export class StockItemComponent implements OnInit {
+  @Input() public stock: Stock;
+  @Output() private toggleFavoriate: EventEmitter<Stock>;
 
-  public stock: Stock;
   public stockClasses;
+  public stockStyles;
+  public stocks : Array<Stock>;
 
-  constructor() { }
+  constructor() { 
+    this.toggleFavoriate = new EventEmitter<Stock>();
+  }
 
   ngOnInit() {
-    this.stock = new Stock('Test Stock Company', 'TSC', 85, 80);
+    this.stocks = [
+      new Stock('Test Stock Company', 'TSC', 85, 80),
+      new Stock('Second Stock Company', 'SSC', 10, 20),
+      new Stock('Last Stock Company', 'LSC', 876, 765),
+    ]
     let diff = this.stock.price / this.stock.previousPrice - 1;
     let largeChange = Math.abs(diff) > 0.01;
     this.stockClasses = {
       "positive": this.stock.isPositiveChange(),
-      "negatvie": !this.stock.isPositiveChange(),
+      "negative": !this.stock.isPositiveChange(),
       "large-change": largeChange,
       "small-change": !largeChange
     }
+    this.stockStyles = {
+      "color": this.stock.isPositiveChange() ? "green" : "red",
+      "font-size": largeChange ? "2.0em" : "1.0em"
+    }
  }
 
-  toggleFavorite(event) {
+  // toggleFavorite(event) {
+  //   var temp: Boolean;
+  //   temp = this.stock.favorite;
+  //   console.log('Before we are toggling the favorite state for this stock', temp)
+
+  //   this.stock.favorite = !temp;
+
+  //   console.log('After we are toggling the favorite state for this stock', this.stock.favorite)    
+  //   console.log('The event is: ', event)    
+  // }
+
+  onToggleFavoriteOnStock(event) {
+    this.toggleFavoriate.emit(this.stock);
+  }
+
+  toggleFavorite(event, index) {
     var temp: Boolean;
-    temp = this.stock.favorite;
+    temp = this.stocks[index].favorite;
     console.log('Before we are toggling the favorite state for this stock', temp)
 
-    this.stock.favorite = !temp;
+    this.stocks[index].favorite = !temp;
 
     console.log('After we are toggling the favorite state for this stock', this.stock.favorite)    
     console.log('The event is: ', event)    
+  }  
+
+  trackStockByCode(index, stock) {
+    return stock.Code;
   }
 }

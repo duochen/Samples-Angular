@@ -10,4 +10,10 @@ export class Stock {
         isPositiveChange(): boolean {
             return this.price >= this.previousPrice;
         }
+
+        isLargeChange() : boolean {
+            let diff = this.price / this.previousPrice - 1;
+            let largeChange = Math.abs(diff) > 0.01;
+            return largeChange;
+        }
 }
