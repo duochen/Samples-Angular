@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SimpleChanges, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterContentChecked, AfterContentInit  } from '@angular/core';
+import { SimpleChanges, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterViewInit, AfterContentChecked, AfterContentInit  } from '@angular/core';
 import { Stock } from './model/stock';
 
 
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
     this.stockObj.price += 10;
   }
 
-  ngAfterViewIit(): void {
+  ngAfterViewInit(): void {
     console.log('App Component - After View Init');
   }
 

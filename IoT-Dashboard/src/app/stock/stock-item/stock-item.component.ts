@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { SimpleChanges, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterContentChecked, AfterContentInit  } from '@angular/core';
+import { SimpleChanges, OnChanges, OnDestroy, DoCheck, AfterViewChecked, AfterContentChecked, AfterViewInit, AfterContentInit  } from '@angular/core';
 
 import { Stock } from '../../model/stock';
 
