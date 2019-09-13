@@ -5,6 +5,7 @@
         <div class="stock-name">
             <input type="text" placeholder="Stock Name" 
                    name="stockname"
+                   required
                    [(ngModel)]="stock.name">
         </div>
         <div class="stock-code">
@@ -12,7 +13,7 @@
                        name="stockcode"
                        [(ngModel)]="stock.code">
         </div>
-        <div class="stock-code">
+        <div class="stock-price">
                 <input type="text" placeholder="Stock Price" 
                        name="stockprice"
                        [ngModel]="stock.price"
