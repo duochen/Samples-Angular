@@ -15,18 +15,23 @@
         <div class="stock-code">
                 <input type="text" placeholder="Stock Price" 
                        name="stockprice"
-                       [ngModel]="stock.code"
+                       [ngModel]="stock.price"
                        (ngModelChange)="setStockePrice($event)"
                        >
         </div>        
-        <div class="stock-exchange">
+        <!-- <div class="stock-exchange">
                 <input type="radio" name="stockexchange"
                     [(ngModel)]="stock.exchange" value="NYSE">NYSE
                 <input type="radio" name="stockexchange"
                     [(ngModel)]="stock.exchange" value="NASDAQ">NASDAQ                       
                 <input type="radio" name="stockexchange"
                     [(ngModel)]="stock.exchange" value="OTHER">OTHER
-        </div>        
+        </div>         -->
+        <select name="stockexchange" [(ngModel)]="stock.exchange">
+                <option *ngFor="let exchange of exchanges"
+                        [ngValue]="exchange"
+                    >{{ exchange}}</option>
+        </select>                
         <div class="stock-confirm">
             <input type="checkbox" name="stockConfirm" [(ngModel)]="confirmed">
             I confirm that the information provided above is accurate!

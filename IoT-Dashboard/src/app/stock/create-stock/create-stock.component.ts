@@ -9,6 +9,7 @@ import { Stock } from '../../model/stock';
 export class CreateStockComponent {
   public stock : Stock;
   public confirmed = false;
+  public exchanges = ['NYSE', 'NASDAQ', 'OTHER'];
   constructor() { 
     this.stock = new Stock('test', '', 0, 0, 'NASAQ');
   }
