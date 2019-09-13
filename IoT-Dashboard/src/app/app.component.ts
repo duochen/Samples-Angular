@@ -18,7 +18,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
   private counter: number = 1;
 
   ngOnInit() {
-    this.stockObj = new Stock('Test Stock Company', "TSC", 85, 80);
+    this.stockObj = new Stock('Test Stock Company', "TSC", 85, 80, 'NASAQ');
     console.log('App Component - On Init')
   }
 
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit, OnChanges, OnDestroy,
   }
 
   changeStockObject() {
-    this.stockObj = new Stock('Test Stock Company - ' + this.counter++, "TSC", 85, 80);
+    this.stockObj = new Stock('Test Stock Company - ' + this.counter++, "TSC", 85, 80, "NASAQ");
   }
 
   changeStockPrice() {
