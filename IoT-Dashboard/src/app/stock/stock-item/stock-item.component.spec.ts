@@ -1,25 +1,44 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 
 import { StockItemComponent } from './stock-item.component';
+import { Stock } from '../../model/stock';
+import { By } from "@angular/platform-browser";
 
-describe('StockItemComponent', () => {
-  let component: StockItemComponent;
-  let fixture: ComponentFixture<StockItemComponent>;
+describe('Stock Item Component', () => {
+  let fixture, component;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StockItemComponent ]
-    })
-    .compileComponents();
+      declarations: [ 
+        StockItemComponent 
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(StockItemComponent);
     component = fixture.componentInstance;
+    component.stock = new Stock('Testing Stock', 'TS', 100, 200);
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create stock component and render stock data', () => {
+    const nameEl = fixture.debugElement.query(By.css('.name'));
+    console.log(nameEl.nativeElement.textContext);
+    expect(nameEl.nativeElement.textContext).toEqual('Testing Stock (TS)');
+    const priceEl = fixture.debugElement.query(By.css('.price.negatvie'));
+    expect(priceEl.nativeElement.textContext).toEqual('$ 100');
+    const addToFavoriteBtnEl = fixture.debugElement.query(By.css('button'));
+    expect(addToFavoriteBtnEl).toBeDefined();
+  });
+
+  it('should trigger event emitter on add to favorite', () => {
+    let selectedStock: Stock;
+    component.toggleFavorite.subscribe((stock: Stock) => selectedStock = stock);
+    const addToFavoriteBtnEl = fixture.debugElement.query(By.css('button'));
+
+    expect(selectedStock).toBeUndefined();
+    addToFavoriteBtnEl.triggerEventHandler('click', null);
+    expect(selectedStock).toEqual(component.stock);
   });
 });
