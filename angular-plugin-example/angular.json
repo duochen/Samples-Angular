@@ -127,48 +127,34 @@
     },
     "plugins": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/plugins",
+      "schematics": {},
+      "root": "projects/plugins/",
       "sourceRoot": "projects/plugins/src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "./builders:plugin",
           "options": {
             "outputPath": "dist/plugins",
-            "index": "projects/plugins/src/index.html",
+            "index": "",
             "main": "projects/plugins/src/main.ts",
             "polyfills": "projects/plugins/src/polyfills.ts",
             "tsConfig": "projects/plugins/tsconfig.app.json",
-            "aot": false,
-            "assets": [
-              "projects/plugins/src/favicon.ico",
-              "projects/plugins/src/assets"
-            ],
-            "styles": [
-              "projects/plugins/src/styles.scss"
-            ],
-            "scripts": []
+            "assets": [],
+            "styles": [],
+            "scripts": [],
+            "es5BrowserSupport": false
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/plugins/src/environments/environment.ts",
-                  "with": "projects/plugins/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [],
               "optimization": true,
-              "outputHashing": "all",
+              "outputHashing": "none",
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
               "aot": true,
-              "extractLicenses": true,
+              "extractLicenses": false,
               "vendorChunk": false,
               "buildOptimizer": true,
               "budgets": [
@@ -176,34 +162,13 @@
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
                 }
               ]
             }
           }
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "plugins:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "plugins:build:production"
-            }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "plugins:build"
-          }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-plugin-example"
 }
