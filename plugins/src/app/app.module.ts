@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PluginsModule } from './plugins.module';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
