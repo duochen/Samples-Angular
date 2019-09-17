@@ -1,1 +1,0 @@
-https://blog.angularindepth.com/building-extensible-dynamic-pluggable-enterprise-application-with-angular-aed8979faba5
