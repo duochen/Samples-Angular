@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Compiler, ViewChild, ViewContainerRef } from '@angular/core';
+import { PluginsModule } from './plugins.module';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'plugins';
+  @ViewChild('content', {read: ViewContainerRef, static: false})
+  content: ViewContainerRef;
+
+  private module;
+
+  constructor(private compiler: Compiler) {
+    this.module = this.compiler.compileModuleAndAllComponentsSync(
+      PluginsModule
+    );
+  }
+
+  createView(name: string) {
+    const factory = this.module.componentFactories.find(
+      f => f.selector === name
+    );
+    this.content.clear();
+    this.content.createComponent(factory);
+  }
 }
