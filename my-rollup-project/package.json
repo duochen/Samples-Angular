@@ -1,0 +1,15 @@
+{
+  "name": "my-rollup-project",
+  "version": "1.0.0",
+  "description": "The code is from the following link:\r https://codingcompiler.com/rollup-tutorial/",
+  "main": "rollup.config.js",
+  "dependencies": {
+    "rollup-plugin-json": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
