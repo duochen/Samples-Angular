@@ -1,6 +1,0 @@
-{
-    "plugin1": {
-        "name": "Plugin 2",
-        "path": "/assets/plugins/plugin1.js"
-      }    
-}
