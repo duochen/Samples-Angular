@@ -26,8 +26,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              { "glob": "bundle.js", "input": "../node_modules/plugins-core/dist/", "output": "./modules/plugins-core" },
-              { "glob": "bundle.js", "input": "../node_modules/plugins-example/dist", "output": "./modules/plugins-example" }              
+              { "glob": "bundle.js", "input": "node_modules/plugins-core/dist/", "output": "./modules/plugins-core" },
+              { "glob": "bundle.js", "input": "node_modules/plugins-example/dist", "output": "./modules/plugins-example" }              
             ],
             "styles": [
               "src/styles.scss"
