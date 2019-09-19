@@ -41,6 +41,7 @@ export class AppComponent implements AfterViewInit {
     SystemJS.config(config.system);
 
     const core = await SystemJS.import('plugins-core');
+    // const pluginExample = await SystemJS.import('plugins-example');
     console.log(core);
   }
 
