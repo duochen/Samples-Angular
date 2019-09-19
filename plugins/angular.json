@@ -25,12 +25,16 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "bundle.js", "input": "../node_modules/plugins-core/dist/", "output": "./modules/plugins-core" },
+              { "glob": "bundle.js", "input": "../node_modules/plugins-example/dist", "output": "./modules/plugins-example" }              
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/systemjs/dist/system.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -90,12 +94,16 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              { "glob": "bundle.js", "input": "../node_modules/plugins-core/dist/", "output": "./modules/plugins-core" },
+              { "glob": "bundle.js", "input": "../node_modules/plugins-example/dist", "output": "./modules/plugins-example" }
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/systemjs/dist/system.js"
+            ]
           }
         },
         "lint": {
