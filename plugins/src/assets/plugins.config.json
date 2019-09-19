@@ -1,6 +1,6 @@
 {
     "system": {
-        "baseURL": "/assets/modules",
+        "baseURL": "",
         "paths": {
           "npm:": "https://unpkg.com/"
         },
