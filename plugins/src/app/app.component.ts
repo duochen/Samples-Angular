@@ -6,6 +6,7 @@ import { PluginsModule } from './plugins.module';
 import { SettingsComponent } from './settings/settings.component';
 
 import { System } from 'systemjs';
+
 declare var SystemJS: System;
 
 interface PluginsConfig {
@@ -41,7 +42,7 @@ export class AppComponent implements AfterViewInit {
     SystemJS.config(config.system);
 
     const core = await SystemJS.import('plugins-core');
-    // const pluginExample = await SystemJS.import('plugins-example');
+    const pluginExample = await SystemJS.import('plugins-example');
     console.log(core);
   }
 
