@@ -1,0 +1,24 @@
+{
+  "name": "@duochen/ng-framework-sidebar",
+  "version": "1.0.0",
+  "author": "Duo Chen <duochen99@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "peerDependencies": {
+    "@angular/common": "^5.0.0",
+    "@angular/core": "^5.0.0"
+  },
+  "main": "bundles/duochen-ng-framework-sidebar.umd.js",
+  "module": "fesm5/duochen-ng-framework-sidebar.js",
+  "es2015": "fesm2015/duochen-ng-framework-sidebar.js",
+  "esm5": "esm5/duochen-ng-framework-sidebar.js",
+  "esm2015": "esm2015/duochen-ng-framework-sidebar.js",
+  "fesm5": "fesm5/duochen-ng-framework-sidebar.js",
+  "fesm2015": "fesm2015/duochen-ng-framework-sidebar.js",
+  "typings": "duochen-ng-framework-sidebar.d.ts",
+  "metadata": "duochen-ng-framework-sidebar.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

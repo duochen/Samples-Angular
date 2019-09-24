@@ -17,7 +17,12 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@duochen/ng-framework-header": ["modules/header/dist"],
+      "@duochen/ng-framework-sidebar": ["modules/sidebar/dist"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

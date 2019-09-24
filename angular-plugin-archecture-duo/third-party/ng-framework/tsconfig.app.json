@@ -2,7 +2,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": [],
+    "paths": {
+      "@duochen/ng-framework-header": ["modules/header/public_api.ts"],
+      "@duochen/ng-framework-sidebar": ["modules/sidebar/public_apit.ts"]
+    }
   },
   "files": [
     "src/main.ts",
@@ -14,5 +18,11 @@
   "exclude": [
     "src/test.ts",
     "src/**/*.spec.ts"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "paths": {
+      "@duochen/ng-framework-header": ["modules/header/public_api.ts"],
+      "@duochen/ng-framework-sidebar": ["modules/sidebar/public_api.ts"]
+    }
+  }
 }

@@ -1,0 +1,12 @@
+{
+    "name": "@duochen/ng-framework-header",
+    "version": "1.0.0",
+    "author": "Duo Chen <duochen99@gmail.com>",
+    "license": "MIT",
+    "private": false,
+    "peerDependencies": {
+      "@angular/common": "^5.0.0",
+      "@angular/core": "^5.0.0"
+    }
+  }
+  
