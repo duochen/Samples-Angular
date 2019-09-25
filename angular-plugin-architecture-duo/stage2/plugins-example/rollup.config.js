@@ -18,8 +18,10 @@ export default {
             typescript: require('typescript')
         })
     ],
-    external: [
-        'plugins-core',
-        '@angular/core'
+    external: [             // The libraries should never get bundled into the resulting output
+        'plugins-core',     // It requires the main application to import them alongside our plugins
+        '@angular/core',
+        '@angular/forms',       
+        '@angular/htpp'
     ]
 }

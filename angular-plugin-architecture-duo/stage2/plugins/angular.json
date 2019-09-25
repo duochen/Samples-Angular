@@ -22,12 +22,12 @@
               {
                 "glob": "bundle.js",
                 "input": "node_modules/plugins-core/dist",
-                "output": "/modules/plugins-core"
+                "output": "assets/modules/plugins-core"
               },
               {
                 "glob": "bundle.js",
                 "input": "node_modules/plugins-example/dist",
-                "output": "/modules/plugins-example"
+                "output": "assets/modules/plugins-example"
               }
             ],
             "styles": [
