@@ -4,7 +4,7 @@ import { Extension } from 'plugins-core';
 @Extension('my-button', [])
 @Component({
     selector: 'my-button',
-    template: `<button>Hello Button</button>`
+    template: `Test Button`
 })
 export class MyButtonComponent implements OnInit {
 

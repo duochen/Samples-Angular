@@ -57,7 +57,7 @@ System.register(['@angular/core', 'plugins-core'], function (exports) {
                     Extension('my-button', []),
                     Component({
                         selector: 'my-button',
-                        template: "<button>Hello Button</button>"
+                        template: "Test Button"
                     })
                 ], MyButtonComponent);
                 return MyButtonComponent;
