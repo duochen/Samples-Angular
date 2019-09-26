@@ -72,7 +72,11 @@ export class AppComponent implements AfterViewInit {
     console.log(core, pluginExample);
 
     const componentType = core.pluginManager.getType('my-label');
-    const RuntimeModule = NgModule({ declarations: [componentType] })(class {});
+
+    const RuntimeModule = NgModule({
+      declarations: [componentType]
+    })(class {});
+
     const module = this.compiler.compileModuleAndAllComponentsSync(
       RuntimeModule
     );

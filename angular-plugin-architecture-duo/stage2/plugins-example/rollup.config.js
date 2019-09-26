@@ -26,6 +26,6 @@ export default {
         'plugins-core',     // It requires the main application to import them alongside our plugins
         '@angular/core',
         '@angular/forms',       
-        '@angular/htpp'
+        '@angular/http'
     ]
 }
