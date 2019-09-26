@@ -90,7 +90,8 @@ export class AppComponent implements AfterViewInit {
     );
 
     this.content.clear();
-    this.content.createComponent(factory, 0, pluginInjector);
+    const componentRef = this.content.createComponent(factory, 0, pluginInjector);
+    console.log(componentRef.instance);
   }
 
   createView(name: string) {
