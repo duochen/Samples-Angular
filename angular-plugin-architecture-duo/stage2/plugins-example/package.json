@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "rimraf": "^3.0.0",
+    "@angular/forms": "^6.1.6",
     "rollup-plugin-angular": "^0.5.3",
     "rollup-plugin-commonjs": "8.3.0",
     "rollup-plugin-node-resolve": "^5.2.0",

@@ -6,6 +6,10 @@
     },
     "map": {
       "@angular/core": "npm:@angular/core@8.2.7/bundles/core.umd.js",
+      "@angular/common": "npm:@angular/common@8.2.7/bundles/common.umd.js",
+      "@angular/forms": "npm:@angular/forms@8.2.7/bundles/forms.umd.js",
+      "@angular/platform-browser": "npm:@angular/platform-browser@8.2.7/bundles/platform-browser.umd.js",
+
       "rxjs": "npm:rxjs@6.5.3/bundles/rxjs.umd.js",
       "rxjs/operators": "npm:rxjs@6.5.3/operators/index.js",
 
@@ -39,6 +43,14 @@
         "component": {
           "module": "plugins-example",
           "componentType": "my-button"
+        }
+      },
+      {
+        "name": "Plugin 3 (form)",
+        "path": "plugin3",
+        "component": {
+          "module": "plugins-example",
+          "componentType": "my-form"
         }
       }
     ]
