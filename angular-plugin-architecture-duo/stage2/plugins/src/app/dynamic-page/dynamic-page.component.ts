@@ -45,5 +45,4 @@ export class DynamicPageComponent implements OnInit, OnDestroy {
       this.component = null;
     }
   }
-
 }

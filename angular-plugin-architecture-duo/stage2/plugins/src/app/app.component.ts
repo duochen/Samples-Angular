@@ -71,6 +71,8 @@ export class AppComponent implements AfterViewInit {
     const pluginExample = await SystemJS.import('plugins-example');
     console.log(core, pluginExample);
 
+    // The following code demonstrates how to compile module and
+    // create a plugin on the fly
     const componentType = core.pluginManager.getType('my-label');
 
     const RuntimeModule = NgModule({
