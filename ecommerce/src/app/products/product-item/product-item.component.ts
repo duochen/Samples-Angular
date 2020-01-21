@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-product-item',
@@ -6,16 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent implements OnInit {
-  public name: string;
-  public price: number;
-  public imageUrl: string;
+  product: Product;
 
   constructor() { }
 
   ngOnInit() {
-    this.name = 'Test Stock Company';
-    this.price = 11.2;
-    this.imageUrl = "https://www.gstatic.com/webp/gallery3/1.png"
+    this.product = {
+      name: 'My Test Product',
+      imageUrl: "http://via.placeholder.com/150x150",
+      price: 50,
+      isOnSale: true,
+      quantityInCart: 0
+    };
   }
 
+  increatmentInCart() {
+    this.product.quantityInCart++;
+  }
+
+  decrementInCart() {
+    if (this.product.quantityInCart > 0) {
+      this.product.quantityInCart--;
+    }
+  }
+
+  switchSale() {
+    this.product.isOnSale = !this.product.isOnSale;
+  }
 }
