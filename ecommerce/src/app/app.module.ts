@@ -4,11 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductItemComponent } from './products/product-item/product-item.component';
+import { LoginComponent } from './login/login/login.component';
+import { HeroComponent } from './test/hero/hero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
