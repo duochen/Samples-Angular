@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecommerce';
+  messages = [
+    "Hello World!",
+    "Another string",
+    "Another one"
+  ];
 }
