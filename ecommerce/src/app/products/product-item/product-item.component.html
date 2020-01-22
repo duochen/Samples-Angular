@@ -11,7 +11,7 @@
       <button (click)="increatmentInCart()">+</button>
     </div>
     <div>
-      <button (click)="switchSale()">Switch Sale</button>
+      <button (click)="switchSale($event)">Switch Sale</button>
       <div>
       <span>{{product.isOnSale ? 'OnSale':"Not OnSale"}} </span>
       </div>

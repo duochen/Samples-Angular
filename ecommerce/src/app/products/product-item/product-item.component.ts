@@ -31,7 +31,8 @@ export class ProductItemComponent implements OnInit {
     }
   }
 
-  switchSale() {
+  switchSale(event) {
     this.product.isOnSale = !this.product.isOnSale;
+    console.log(event);
   }
 }
