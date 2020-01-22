@@ -1,4 +1,4 @@
-<div class="product-item" [class]="product.isOnSale ? 'product-item sale' : 'product-item notsale'">
+<div class="product-item" [ngClass]="calculateClasses()">
   <div>
     <img [src]="product.imageUrl">
   </div>

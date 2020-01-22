@@ -7,7 +7,8 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent implements OnInit {
-  product: Product;
+  public product: Product;
+  public productClasses;
 
   constructor() { }
 
@@ -18,6 +19,10 @@ export class ProductItemComponent implements OnInit {
       price: 50,
       isOnSale: true,
       quantityInCart: 0
+    };
+    this.productClasses = {
+      "sale": this.product.isOnSale,
+      "notsale": !this.product.isOnSale,
     };
   }
 
@@ -33,6 +38,13 @@ export class ProductItemComponent implements OnInit {
 
   switchSale(event) {
     this.product.isOnSale = !this.product.isOnSale;
-    console.log(event);
   }
+
+  calculateClasses() {
+    return {
+      'sale': this.product.isOnSale,
+      'notsale': !this.product.isOnSale
+    }
+  }
+
 }
