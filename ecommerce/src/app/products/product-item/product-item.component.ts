@@ -9,6 +9,9 @@ import { Product } from 'src/app/model/product';
 export class ProductItemComponent implements OnInit {
   public product: Product;
   public productClasses;
+  public buttonStyles;
+  public person: string;
+  private quantities: Array<number>;
 
   constructor() { }
 
@@ -24,6 +27,17 @@ export class ProductItemComponent implements OnInit {
       "sale": this.product.isOnSale,
       "notsale": !this.product.isOnSale,
     };
+    this.buttonStyles = {
+      "color": "red",
+      "font-size": "1.2em"
+    }
+
+    this.quantities = [];
+    for (let i = 0; i < 20; i++) {
+      this.quantities.push(i);
+    }
+
+    this.person = "Duo";
   }
 
   increatmentInCart() {
