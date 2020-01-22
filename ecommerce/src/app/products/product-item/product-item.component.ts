@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from 'src/app/model/product';
 
 @Component({
@@ -7,7 +7,7 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent implements OnInit {
-  public product: Product;
+  @Input() public product: Product;
   public productClasses;
   public buttonStyles;
   public person: string;
@@ -16,17 +16,11 @@ export class ProductItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.product = {
-      name: 'My Test Product',
-      imageUrl: "http://via.placeholder.com/150x150",
-      price: 50,
-      isOnSale: true,
-      quantityInCart: 0
-    };
     this.productClasses = {
       "sale": this.product.isOnSale,
       "notsale": !this.product.isOnSale,
     };
+    
     this.buttonStyles = {
       "color": "red",
       "font-size": "1.2em"
