@@ -6,7 +6,7 @@
     <div>{{product.name}}</div>
     <div>$ {{product.price}}</div>
     <div>
-      <button (click)="decrementInCart()">-</button>
+      <button (click)="decrementInCart()" [disabled]="product.quantityInCart == 0">-</button>
       <span>{{product.quantityInCart}}</span>
       <button (click)="increatmentInCart()">+</button>
     </div>
