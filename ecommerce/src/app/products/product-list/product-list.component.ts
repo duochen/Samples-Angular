@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product';
+import { ProductQuantityChange } from 'src/app/model/product-quantity-change';
 
 @Component({
   selector: 'app-product-list',
@@ -40,12 +42,10 @@ export class ProductListComponent implements OnInit {
     ];
   }
 
-  onIncrement(product:Product) {
-    console.log(product.quantityInCart);
+  onQuantityChange(change: ProductQuantityChange) {
+    const product = this.products.find(prod => {
+      return change.product.id == prod.id
+    });
+    product.quantityInCart += change.changeInQuantity;
   }
-
-  onDecrement(product:Product) {
-    console.log(product.quantityInCart);
-  }
-
 }

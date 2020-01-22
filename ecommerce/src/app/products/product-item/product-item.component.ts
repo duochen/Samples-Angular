@@ -1,23 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { Product } from 'src/app/model/product';
+import { ProductQuantityChange } from 'src/app/model/product-quantity-change';
 
 @Component({
   selector: 'app-product-item',
   templateUrl: './product-item.component.html',
-  styleUrls: ['./product-item.component.scss']
+  styleUrls: ['./product-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductItemComponent implements OnInit {
   @Input() public product: Product;
-  @Output() private increment: EventEmitter<Product>;
-  @Output() private decrement: EventEmitter<Product>;
+  @Output() private quantityChange: EventEmitter<ProductQuantityChange> = new EventEmitter();
   public productClasses;
   public buttonStyles;
   public person: string;
   private quantities: Array<number>;
 
   constructor() { 
-    this.increment = new EventEmitter<Product>();
-    this.decrement = new EventEmitter<Product>();
   }
 
   ngOnInit() {
@@ -40,14 +39,12 @@ export class ProductItemComponent implements OnInit {
   }
 
   increatmentInCart(event) {
-    this.product.quantityInCart++;
-    this.increment.emit(this.product);
+    this.quantityChange.emit({product: this.product, changeInQuantity: 1});
   }
 
   decrementInCart(event) {
     if (this.product.quantityInCart > 0) {
-      this.product.quantityInCart--;
-      this.decrement.emit(this.product);      
+      this.quantityChange.emit({product: this.product, changeInQuantity: -1});
     }
   }
 
