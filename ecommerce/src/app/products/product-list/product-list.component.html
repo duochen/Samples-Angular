@@ -1,1 +1,5 @@
-<app-product-item [product]="product" *ngFor="let product of products"></app-product-item>
+<app-product-item [product]="product" 
+                  *ngFor="let product of products"
+                  (increment) = "onIncrement($event)"
+                  (decrement) = "onDecrement($event)">
+</app-product-item>

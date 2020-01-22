@@ -40,4 +40,12 @@ export class ProductListComponent implements OnInit {
     ];
   }
 
+  onIncrement(product:Product) {
+    console.log(product.quantityInCart);
+  }
+
+  onDecrement(product:Product) {
+    console.log(product.quantityInCart);
+  }
+
 }

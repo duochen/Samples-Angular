@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/model/product';
 
 @Component({
@@ -8,12 +8,17 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductItemComponent implements OnInit {
   @Input() public product: Product;
+  @Output() private increment: EventEmitter<Product>;
+  @Output() private decrement: EventEmitter<Product>;
   public productClasses;
   public buttonStyles;
   public person: string;
   private quantities: Array<number>;
 
-  constructor() { }
+  constructor() { 
+    this.increment = new EventEmitter<Product>();
+    this.decrement = new EventEmitter<Product>();
+  }
 
   ngOnInit() {
     this.productClasses = {
@@ -34,13 +39,15 @@ export class ProductItemComponent implements OnInit {
     this.person = "Duo";
   }
 
-  increatmentInCart() {
+  increatmentInCart(event) {
     this.product.quantityInCart++;
+    this.increment.emit(this.product);
   }
 
-  decrementInCart() {
+  decrementInCart(event) {
     if (this.product.quantityInCart > 0) {
       this.product.quantityInCart--;
+      this.decrement.emit(this.product);      
     }
   }
 

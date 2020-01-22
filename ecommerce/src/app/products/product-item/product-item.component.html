@@ -6,12 +6,12 @@
     <div>{{product.name}}</div>
     <div>$ {{product.price}}</div>
     <div>
-      <button (click)="decrementInCart()" *ngIf ="product.quantityInCart > 0">-</button>
+      <button (click)="decrementInCart($event)" *ngIf ="product.quantityInCart > 0">-</button>
       <select>
         <option [value]="qty" *ngFor="let q of quantities">{{q}}</option>
       </select>
       <span>{{product.quantityInCart}}</span>
-      <button (click)="increatmentInCart()">+</button>
+      <button (click)="increatmentInCart($event)">+</button>
     </div>
     <div>
       <button (click)="switchSale($event)" [ngStyle]="buttonStyles">Switch Sale</button>
