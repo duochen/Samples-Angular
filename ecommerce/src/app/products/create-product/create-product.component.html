@@ -2,7 +2,7 @@
     Create Product
 </h3>
 
-<div>
+<div class="form-group">
     <h4 class="error">{{message}}</h4>
     <form (ngSubmit)="createProduct(productForm)" #productForm="ngForm">
         <div ngModelGroup="product">
@@ -48,6 +48,7 @@
             </div>
             <div>
                 <input type="checkbox"
+                    ngModel
                     name="isOnSale"/>
                     On Sale
             </div>
