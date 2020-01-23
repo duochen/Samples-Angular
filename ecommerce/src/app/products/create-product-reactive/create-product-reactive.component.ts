@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators, FormBuilder } from '@angular/forms';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-create-product-reactive',
@@ -36,7 +37,5 @@ export class CreateProductReactiveComponent implements OnInit {
       const product: Product = productForm.value
       console.log('Name Control Value', product);
     }
-
-    
   }
 }
