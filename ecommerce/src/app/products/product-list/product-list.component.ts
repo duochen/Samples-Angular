@@ -11,7 +11,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  public products: Product[];
+  public products: Observable<Product[]>;
 
   constructor(public productService: ProductService) { }
 
@@ -20,9 +20,6 @@ export class ProductListComponent implements OnInit {
   }
 
   onQuantityChange(change: ProductQuantityChange) {
-    const product = this.products.find(prod => {
-      return change.product.id == prod.id
-    });
-    product.quantityInCart += change.changeInQuantity;
+    this.productService.changeQuantity(change.product.id, change.changeInQuantity);
   }
 }

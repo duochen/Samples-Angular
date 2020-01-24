@@ -1,5 +1,5 @@
 <app-product-item [product]="product"
-                  *ngFor="let product of products"
+                  *ngFor="let product of products | async"
                   (quantityChange) = "onQuantityChange($event)"
                     >
 </app-product-item>

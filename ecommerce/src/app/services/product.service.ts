@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../model/product';
+import { Observable } from 'rxjs';
+import { of as ObservableOf } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  public products: Product[];
+  private products: Product[];
 
   constructor() {
     this.products = [
@@ -36,7 +38,14 @@ export class ProductService {
     ];
   }
 
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    return ObservableOf(this.products);
+  }
+
+  changeQuantity(id: number, changeInQuantity: number): Observable<Product> {
+    const product = this.products
+        .find(prod => prod.id === id);
+    product.quantityInCart += changeInQuantity;
+    return ObservableOf(product);
   }
 }
