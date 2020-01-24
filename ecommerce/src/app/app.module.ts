@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login/login.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { CreateProductComponent } from './products/create-product/create-product.component';
 import { CreateProductReactiveComponent } from './products/create-product-reactive/create-product-reactive.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { CreateProductReactiveComponent } from './products/create-product-reacti
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
