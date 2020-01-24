@@ -1,1 +1,4 @@
-<app-stock-item *ngFor="let stock of stocks" [stock]="stock" (toggleFavorite)="onToggleStock($event)"></app-stock-item>
+<app-stock-item *ngFor="let stock of stocks$ | async"
+                [stock]="stock"
+                (toggleFavorite)="onToggleStock($event)">
+</app-stock-item>

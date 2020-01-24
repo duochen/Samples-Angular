@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Stock } from 'app/model/stock';
+import { MessageService } from 'app/services/message.service';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,10 @@ export class AppComponent implements OnInit {
 
   public stock: Stock;
 
+  constructor(public messageService: MessageService) {}
+
   ngOnInit(): void {
+    this.messageService.message = 'Hello Message Service!';
     this.stock = new Stock('Test Stock Company', 'TSC', 85, 80, 'NYSE');
   }
 
