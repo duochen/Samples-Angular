@@ -24,4 +24,8 @@ export class StockService {
         favorite: !stock.favorite
       });
   }
+
+  makeFailingCall() {
+    return this.http.get('/api/fail');
+  }
 }
