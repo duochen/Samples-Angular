@@ -1,5 +1,5 @@
 <h3>
-    Create Product
+    Create Product Using Template Form
 </h3>
 
 <div class="form-group">
@@ -28,7 +28,7 @@
             </div>
             <div class="error" *ngIf="(productPrice.dirty || message) && productPrice.invalid">
                 Product price is required
-            </div>        
+            </div>
             <div>
                 <input type="text"
                     ngModel
@@ -41,7 +41,7 @@
             <div class="error" *ngIf="(productImageUrl.dirty || message) && productImageUrl.invalid">
                 <div *ngIf="productImageUrl.errors.required">
                     Product Image URL Is required
-                </div>    
+                </div>
                 <div *ngIf="productImageUrl.errors.pattern">
                     Product Image URL does not seem to be a valid URL
                 </div>

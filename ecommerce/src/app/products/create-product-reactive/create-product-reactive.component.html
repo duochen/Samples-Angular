@@ -1,5 +1,5 @@
 <h3>
-    Create Product
+    Create Product Using Reactive Form
 </h3>
 <div>
     <h4 class="error">{{message}}</h4>
@@ -12,12 +12,12 @@
             </div>
             <div class="error" *ngIf="(productForm.get('name').dirty || message) && productForm.get('name').invalid">
                 Product name is required
-            </div>    
+            </div>
             <div>
                 <input type="number"
                     placeholder="Product Price"
                     formControlName="price">
-            </div>    
+            </div>
             <div class="error" *ngIf="(productForm.get('price').dirty || message) && productForm.get('price').invalid">
                 <div *ngIf="productForm.get('price').errors.required">
                   Product price is required
@@ -25,11 +25,11 @@
                 <div *ngIf="productForm.get('price').errors.min">
                   Product price must be atleast 1
                 </div>
-            </div>            
+            </div>
             <div>
                 <input type="text"
                         placeholder="Product Image URL"
-                        formControlName="imageUrl">               
+                        formControlName="imageUrl">
             </div>
             <div class="error"
             *ngIf="(productForm.get('imageUrl').dirty || message) &&
@@ -40,17 +40,17 @@
          <div *ngIf="productForm.get('imageUrl').errors.pattern">
            Product Image URL does not seem to be a valid URL
          </div>
-       </div>            
+       </div>
             <div>
                 <input type="checkbox"
                         formControlName="isOnSale">
-                On Sale               
-            </div>    
+                On Sale
+            </div>
             <div>
                 <button type="submit">Create</button>
-            </div>    
+            </div>
         </form>
-    </div>    
+    </div>
 </div>
 
 <p>Form Control value: {{ productForm.value | json }}</p>

@@ -7,4 +7,4 @@ app.get('/', (req, res) => res.send('Hello World!'));
 
 app.use('/api/product', require('./products'));
 
-app.listen(3000, () => console.log('App Server listening on port 3000!'));
+app.listen(3000, () => console.log('App Server is listening on port 3000!'));

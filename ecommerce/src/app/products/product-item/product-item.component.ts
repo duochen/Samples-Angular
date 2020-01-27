@@ -13,36 +13,26 @@ export class ProductItemComponent implements OnInit {
   @Output() private quantityChange: EventEmitter<ProductQuantityChange> = new EventEmitter();
   public productClasses;
   public buttonStyles;
-  public person: string;
-  private quantities: Array<number>;
 
-  constructor() { 
-  }
+  constructor() { }
 
   ngOnInit() {
     this.productClasses = {
       "sale": this.product.isOnSale,
       "notsale": !this.product.isOnSale,
     };
-    
+
     this.buttonStyles = {
       "color": "red",
       "font-size": "1.2em"
     }
-
-    this.quantities = [];
-    for (let i = 0; i < 20; i++) {
-      this.quantities.push(i);
-    }
-
-    this.person = "Duo";
   }
 
-  increatmentInCart(event) {
+  increatmentInCart() {
     this.quantityChange.emit({product: this.product, changeInQuantity: 1});
   }
 
-  decrementInCart(event) {
+  decrementInCart() {
     if (this.product.quantityInCart > 0) {
       this.quantityChange.emit({product: this.product, changeInQuantity: -1});
     }

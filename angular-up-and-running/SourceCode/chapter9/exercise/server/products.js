@@ -49,6 +49,7 @@ router.post('/', (req, res) => {
   product.id = products.length + 1;
   product.quantityInCart = 0;
   products.push(product);
+  console.log(product);
   return res.status(200).json(product);
 });
 
@@ -58,7 +59,9 @@ router.patch('/:id', (req, res) => {
   if (foundProduct) {
     let changeInQuantity = req.body.changeInQuantity;
     foundProduct.quantityInCart += changeInQuantity;
-    return res.status(200).json({msg: 'Successfully updated cart'});
+    console.log(req.body);
+    console.log(changeInQuantity);
+    return res.status(200).json({msg: 'Successfully updated cart!!'});
   }
   return res.status(400).json({msg: 'Product with id ' + productId + ' not found.'});
 });

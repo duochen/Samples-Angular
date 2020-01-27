@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Product } from 'src/app/model/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-create-product-reactive',
@@ -11,8 +12,8 @@ import { Product } from 'src/app/model/product';
 export class CreateProductReactiveComponent implements OnInit {
   public productForm: FormGroup;
   public message: string;
-  
-  constructor(private fb: FormBuilder) { 
+
+  constructor(private fb: FormBuilder, private productService: ProductService) {
     this.createForm();
   }
 
@@ -34,7 +35,8 @@ export class CreateProductReactiveComponent implements OnInit {
     if (this.productForm.invalid) {
       this.message = 'Please correct all errors and resubmit the form';
     } else {
-      const product: Product = productForm.value
+      const product: Product = productForm.value;
+      this.productService.createProduct(product);
       console.log('Name Control Value', product);
     }
   }

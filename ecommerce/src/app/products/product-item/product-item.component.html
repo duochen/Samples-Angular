@@ -6,26 +6,15 @@
     <div>{{product.name}}</div>
     <div>$ {{product.price}}</div>
     <div>
-      <button (click)="decrementInCart($event)" *ngIf ="product.quantityInCart > 0">-</button>
-      <select>
-        <option [value]="qty" *ngFor="let q of quantities">{{q}}</option>
-      </select>
+      <button (click)="decrementInCart()" *ngIf ="product.quantityInCart > 0">-</button>
       <span>{{product.quantityInCart}}</span>
-      <button (click)="increatmentInCart($event)">+</button>
+      <button (click)="increatmentInCart()">+</button>
     </div>
     <div>
       <button (click)="switchSale($event)" [ngStyle]="buttonStyles">Switch Sale</button>
       <div>
       <span>{{product.isOnSale ? 'OnSale':"Not OnSale"}} </span>
       </div>
-    </div>
-    <div class="person">
-        <ul [ngSwitch]="person">
-          <li *ngSwitchCase="'Mohan'">Hello Mohan</li>
-          <li *ngSwitchCase="'Sohan'">Hello Sohan</li>
-          <li *ngSwitchCase="'Vijay'">Hello Vijay</li>
-          <li *ngSwitchDefault>Bye Bye</li>
-        </ul>
     </div>
   </div>
 </div>

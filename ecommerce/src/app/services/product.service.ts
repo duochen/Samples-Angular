@@ -1,51 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Product } from '../model/product';
 import { Observable } from 'rxjs';
-import { of as ObservableOf } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProductService {
-  private products: Product[];
 
-  constructor() {
-    this.products = [
-      {
-        id: 1,
-        name: "Test Product - 1",
-        imageUrl: 'http://via.placeholder.com/150x150',
-        price: 50,
-        isOnSale: true,
-        quantityInCart: 0
-      },
-      {
-        id: 2,
-        name: 'Test Product - 2',
-        imageUrl: 'http://via.placeholder.com/150x150',
-        price: 150,
-        isOnSale: false,
-        quantityInCart: 0
-      },
-      {
-        id: 3,
-        name: 'Test Product - 3',
-        imageUrl: 'http://via.placeholder.com/150x150',
-        price: 250,
-        isOnSale: true,
-        quantityInCart: 0
-      }
-    ];
-  }
+  constructor(private httpClient: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
-    return ObservableOf(this.products);
+    return this.httpClient.get<Product[]>('/api/product');
   }
 
-  changeQuantity(id: number, changeInQuantity: number): Observable<Product> {
-    const product = this.products
-        .find(prod => prod.id === id);
-    product.quantityInCart += changeInQuantity;
-    return ObservableOf(product);
+  changeQuantity(id: number, changeInQuantity: number): Observable<any> {
+    return this.httpClient.patch("'http://localhost:4200/api/product/1", {
+      "changeInQuantity": 2
+    });
+    // return  this.httpClient.patch('/api/product/' + id, {changeInQuantity: changeInQuantity});
+  }
+
+  createProduct(product: Product): Observable<Product> {
+    return this.httpClient.post<Product>('/api/product', product);
   }
 }
