@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Product } from '../model/product';
 import { Observable } from 'rxjs';
@@ -14,10 +14,7 @@ export class ProductService {
   }
 
   changeQuantity(id: number, changeInQuantity: number): Observable<any> {
-    return this.httpClient.patch("'http://localhost:4200/api/product/1", {
-      "changeInQuantity": 2
-    });
-    // return  this.httpClient.patch('/api/product/' + id, {changeInQuantity: changeInQuantity});
+    return  this.httpClient.patch('/api/product/' + id, {changeInQuantity: changeInQuantity});
   }
 
   createProduct(product: Product): Observable<Product> {

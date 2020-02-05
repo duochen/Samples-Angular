@@ -36,7 +36,12 @@ export class CreateProductReactiveComponent implements OnInit {
       this.message = 'Please correct all errors and resubmit the form';
     } else {
       const product: Product = productForm.value;
-      this.productService.createProduct(product);
+      this.productService.createProduct(product).subscribe((res) => {
+        this.message = 'Product successfully created.';
+        console.log('Triggered event emitter');
+      }, (err) => {
+        this.message = 'Unable to create product, please try again.';
+      });
       console.log('Name Control Value', product);
     }
   }

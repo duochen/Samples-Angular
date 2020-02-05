@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
 import { ProductQuantityChange } from 'src/app/model/product-quantity-change';
@@ -12,6 +12,7 @@ import { ProductService } from '../../services/product.service';
 export class ProductListComponent implements OnInit {
 
   public products: Observable<Product[]>;
+  private reloadProductsList: Subject<void> = new Subject();
 
   constructor(public productService: ProductService) { }
 
@@ -20,6 +21,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onQuantityChange(change: ProductQuantityChange) {
-    this.productService.changeQuantity(change.product.id, change.changeInQuantity);
+    this.productService.changeQuantity(change.product.id, change.changeInQuantity)
+      .subscribe((res) => {console.log(res)});
   }
 }
