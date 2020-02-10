@@ -1,19 +1,18 @@
 import { Component, InjectionToken, Inject } from '@angular/core';
 import { GreetingService } from './../services/GreetingService';
+import { LogService } from './../services/LogService';
 
-export const greetingToken = new InjectionToken<GreetingService>('GREET_TOKEN');
-export const greetingFactory = () => new GreetingService();
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [{provide: greetingToken, useFactory: greetingFactory}],
+  providers: [],
 })
 export class AppComponent {
   title = 'app';
 
-  constructor(@Inject(greetingToken) private greetingService: GreetingService) {
+  constructor(private greetingService: GreetingService, private logService: LogService) {
     console.log(this.greetingService.sayHello('Duo'));
   }
 }
