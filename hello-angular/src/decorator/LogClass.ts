@@ -44,3 +44,16 @@ export function LogAccessorWithParams(message: string) {
       console.log(`Message from decorator: ${message}`);
     };
 }
+
+export function LogProperty(target: any, propertyKey: string) {
+  console.log(`LogProperty decorator called`);
+  console.log(target);
+  console.log(propertyKey);
+}
+
+export function LogParameter(target: any, parameterName: string, parameterIndex: number) {
+  console.log(`LogParameter decorator called`);
+  console.log(target);
+  console.log(parameterName);
+  console.log(parameterIndex);
+}
