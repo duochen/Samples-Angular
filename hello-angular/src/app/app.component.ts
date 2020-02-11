@@ -11,7 +11,11 @@ import { LogService } from './../services/LogService';
 })
 export class AppComponent {
   title = 'app';
-
+  listItems: Array<{title: string}> = [
+    {title: 'item 1'},
+    {title: 'item 2'},
+    {title: 'item 3'},
+  ];
   constructor(private greetingService: GreetingService, private logService: LogService) {
     console.log(this.greetingService.sayHello('Duo'));
   }

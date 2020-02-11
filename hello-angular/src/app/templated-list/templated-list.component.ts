@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-templated-list',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./templated-list.component.css']
 })
 export class TemplatedListComponent implements OnInit {
+  @Input()
+  items: Array<{title: string}> = [];
 
   constructor() { }
 
