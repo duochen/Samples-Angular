@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { TemplatedListComponent } from './templated-list/templated-list.component';
 // tslint:disable-next-line: max-line-length
 import { DynamicContentComponent, DynamicSample1Component, DynamicSample2Component, UnknownDynamicComponent } from './dynamic-content/dynamic-content.component';
+import { RuntimeContentComponent } from './runtime-content/runtime-content.component';
 
 const loggerConfig: LoggerConfig = {
   logLevel: 'warn',
@@ -28,6 +29,7 @@ const loggerConfig: LoggerConfig = {
     DynamicSample2Component,
     DynamicSample1Component,
     UnknownDynamicComponent,
+    RuntimeContentComponent,
   ],
   imports: [
     BrowserModule,
