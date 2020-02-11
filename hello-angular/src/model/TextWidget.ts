@@ -1,6 +1,8 @@
-import { LogClass } from '../decorator/LogClass'
+import { LogClass, LogClassWithParams } from '../decorator/LogClass'
 
 @LogClass
+@LogClassWithParams('BEGIN:', ':END')
+@LogClassWithParams('[', ']')
 export class TextWidget {
   text: string;
 
