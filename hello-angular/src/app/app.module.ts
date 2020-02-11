@@ -8,6 +8,7 @@ import { REST_API_URL } from './../injection/tokens';
 import { AppComponent } from './app.component';
 import { GreetingService } from './../services/GreetingService';
 import { AboutComponent } from './about/about.component';
+import { TemplatedListComponent } from './templated-list/templated-list.component';
 
 const loggerConfig: LoggerConfig = {
   logLevel: 'warn',
@@ -19,6 +20,7 @@ const loggerConfig: LoggerConfig = {
     AppComponent,
     AboutComponent,
     EagerComponent,
+    TemplatedListComponent,
   ],
   imports: [
     BrowserModule,
