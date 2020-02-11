@@ -1,3 +1,5 @@
+import { EagerComponent } from './eager.component';
+import { routing } from './app.routing';
 import { LoggerConfig, LOGGER_CONFIG } from './../model/LoggerConfig';
 import { LogService } from './../services/LogService';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,10 +17,12 @@ const loggerConfig: LoggerConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    AboutComponent
+    AboutComponent,
+    EagerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    routing
   ],
   providers: [
     GreetingService,

@@ -1,4 +1,4 @@
-import { LogClass, LogClassWithParams, LogMethod, LogMethodWithParams, LogAccessor, LogAccessorWithParams, LogProperty, LogParameter } from '../decorator/LogClass'
+import { LogClass, LogClassWithParams, LogMethodWithParams, LogAccessorWithParams, LogProperty, LogParameter } from '../decorator/LogClass'
 
 @LogClass
 @LogClassWithParams('BEGIN:', ':END')
@@ -8,7 +8,7 @@ export class TextWidget {
   @LogProperty
   id: string;
 
-  constructor(text: string=`default text`, id='my id') {
+  constructor(text: string=`default text`, id: string= 'my id') {
     this._text = text;
     this.id = id;
   }
@@ -27,7 +27,7 @@ export class TextWidget {
   // @LogMethod
   @LogMethodWithParams('hello')
   @LogMethodWithParams('world')
-  render(@LogParameter postionX: number, @LogParameter positionY: number) {
+  render() {
     console.log(`Rendering text: ${this._text}`);
   }
 }
