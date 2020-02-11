@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ContentChild, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-templated-list',
@@ -6,6 +6,9 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./templated-list.component.css']
 })
 export class TemplatedListComponent implements OnInit {
+  @ContentChild(TemplateRef)
+  template: TemplateRef<any>;
+
   @Input()
   items: Array<{title: string}> = [];
 

@@ -1,5 +1,7 @@
 <ul>
-  <li *ngFor="let item of items">
+  <ng-template ngFor [ngForOf]="items" [ngForTemplate]="template">
+  </ng-template>
+  <!-- <li *ngFor="let item of items">
     {{ item.title }}
-  </li>
+  </li> -->
 </ul>
