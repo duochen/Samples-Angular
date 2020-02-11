@@ -1,4 +1,5 @@
 import { EagerComponent } from './eager.component';
+import { FormsModule } from '@angular/forms';
 import { routing } from './app.routing';
 import { LoggerConfig, LOGGER_CONFIG } from './../model/LoggerConfig';
 import { LogService } from './../services/LogService';
@@ -30,7 +31,8 @@ const loggerConfig: LoggerConfig = {
   ],
   imports: [
     BrowserModule,
-    routing
+    routing, 
+    FormsModule
   ],
   providers: [
     GreetingService,

@@ -1,22 +1,26 @@
 import { Component, OnInit, ViewChild, ViewContainerRef, Input, OnDestroy, ComponentFactoryResolver, ComponentRef } from '@angular/core';
 
+abstract class DynamicComponent {
+  context: any;
+}
+
 @Component({
   selector: `app-dynamic-sample-1`,
-  template: `<div>Dynamic sample 1</div>`,
+  template: `<div>Dynamic sample 1 ({{context?.text}})</div>`,
 })
-export class DynamicSample1Component {}
+export class DynamicSample1Component extends DynamicComponent{}
 
 @Component({
   selector: `app-dynamic-sample-2`,
-  template: `<div>Dynamic sample 2</div>`,
+  template: `<div>Dynamic sample 2 ({{context?.text}})</div>`,
 })
-export class DynamicSample2Component {}
+export class DynamicSample2Component extends DynamicComponent{}
 
 @Component({
   selector: `app-unknown-component`,
-  template: `<div>Unknown component</div>`
+  template: `<div>Unknown component ({{context?.text}})</div>`
 })
-export class UnknownDynamicComponent {}
+export class UnknownDynamicComponent extends DynamicComponent{}
 
 @Component({
   selector: 'app-dynamic-content',
@@ -31,6 +35,9 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
 
   @Input()
   type: string;
+
+  @Input()
+  context: any;
 
   private mappings = {
     'sample1': DynamicSample1Component,
@@ -49,6 +56,8 @@ export class DynamicContentComponent implements OnInit, OnDestroy {
       const componentType = this.getComponentType(this.type);
       const factory = this.resolver.resolveComponentFactory(componentType);
       this.componentRef = this.container.createComponent(factory);
+      let instance = <DynamicComponent>this.componentRef.instance;
+      instance.context = this.context;
     }
   }
 
