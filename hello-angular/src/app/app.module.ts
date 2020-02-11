@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { GreetingService } from './../services/GreetingService';
 import { AboutComponent } from './about/about.component';
 import { TemplatedListComponent } from './templated-list/templated-list.component';
+// tslint:disable-next-line: max-line-length
+import { DynamicContentComponent, DynamicSample1Component, DynamicSample2Component, UnknownDynamicComponent } from './dynamic-content/dynamic-content.component';
 
 const loggerConfig: LoggerConfig = {
   logLevel: 'warn',
@@ -21,6 +23,10 @@ const loggerConfig: LoggerConfig = {
     AboutComponent,
     EagerComponent,
     TemplatedListComponent,
+    DynamicContentComponent,
+    DynamicSample2Component,
+    DynamicSample1Component,
+    UnknownDynamicComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +38,11 @@ const loggerConfig: LoggerConfig = {
     { provide: REST_API_URL, useValue: 'http://localhost:4200/api' },
     { provide: LOGGER_CONFIG, useValue: loggerConfig},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DynamicSample2Component,
+    DynamicSample1Component,
+    UnknownDynamicComponent
+  ],
 })
 export class AppModule { }
