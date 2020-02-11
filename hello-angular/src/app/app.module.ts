@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { REST_API_URL } from './../injection/tokens';
 import { AppComponent } from './app.component';
 import { GreetingService } from './../services/GreetingService';
+import { AboutComponent } from './about/about.component';
 
 const loggerConfig: LoggerConfig = {
   logLevel: 'warn',
@@ -13,7 +14,8 @@ const loggerConfig: LoggerConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule
