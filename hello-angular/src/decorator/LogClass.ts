@@ -27,3 +27,20 @@ export function LogMethodWithParams(message: string) {
      console.log(`{propertyKey}: ${message}`)
    };
  }
+
+ export function LogAccessor(target: any,
+                             propertyKey: string,
+                             descriptor: PropertyDescriptor) {
+  console.log(`LogAccessor decorator called`);
+  console.log(target);
+  console.log(propertyKey);
+  console.log(descriptor);
+}
+
+export function LogAccessorWithParams(message: string) {
+  return (target: any,
+    propertyKey: string,
+    descriptor: PropertyDescriptor) => {
+      console.log(`Message from decorator: ${message}`);
+    };
+}
