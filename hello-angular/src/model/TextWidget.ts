@@ -1,4 +1,4 @@
-import { LogClass, LogClassWithParams } from '../decorator/LogClass'
+import { LogClass, LogClassWithParams, LogMethod, LogMethodWithParams } from '../decorator/LogClass'
 
 @LogClass
 @LogClassWithParams('BEGIN:', ':END')
@@ -10,6 +10,9 @@ export class TextWidget {
     this.text = text;
   }
 
+  // @LogMethod
+  @LogMethodWithParams('hello')
+  @LogMethodWithParams('world')
   render() {
     console.log(`Rendering text: ${this.text}`);
   }
