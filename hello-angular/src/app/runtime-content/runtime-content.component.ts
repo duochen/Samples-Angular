@@ -25,7 +25,11 @@ export class RuntimeContentComponent implements OnInit {
     componentClass: any): ComponentFactory<any> {
 
       const cmpClass = componentClass || class RuntimeComponent {
-        name = "Denys"
+        name = "Denys";
+
+        onClick() {
+          alert('Clicked');
+        }
       };
 
       const decoratedCmp = Component(metadata)(cmpClass);
