@@ -2,7 +2,6 @@ import { AboutComponent } from './about/about.component';
 import { Component, InjectionToken, Inject } from '@angular/core';
 import { GreetingService } from './../services/GreetingService';
 import { LogService } from './../services/LogService';
-import { DclWrapperComponent } from './dcl-wrapper/dcl-wrapper.component';
 
 @Component({
   selector: 'app-root',

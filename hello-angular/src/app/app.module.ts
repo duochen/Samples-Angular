@@ -8,7 +8,6 @@ import { REST_API_URL } from './../injection/tokens';
 import { AppComponent } from './app.component';
 import { GreetingService } from './../services/GreetingService';
 import { AboutComponent } from './about/about.component';
-import { DclWrapperComponent } from './dcl-wrapper/dcl-wrapper.component';
 
 const loggerConfig: LoggerConfig = {
   logLevel: 'warn',
@@ -20,7 +19,6 @@ const loggerConfig: LoggerConfig = {
     AppComponent,
     AboutComponent,
     EagerComponent,
-    DclWrapperComponent
   ],
   imports: [
     BrowserModule,

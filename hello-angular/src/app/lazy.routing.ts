@@ -6,5 +6,5 @@ const routes: Routes = [
   { path: '', component: LazyComponent }
 ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes)
+export const routing: ModuleWithProviders = RouterModule.forChild(routes);
 
