@@ -1,7 +1,7 @@
+import { Routes } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,10 +12,8 @@ import { EditServerComponent } from './servers/edit-server/edit-server.component
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
+const appRoutes: Routes = [
   { path: 'users', component: UsersComponent },
-  { path: 'servers', component: ServersComponent },
 ];
 
 @NgModule({
@@ -31,7 +29,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
