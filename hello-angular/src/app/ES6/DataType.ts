@@ -31,4 +31,13 @@ let arr2: Array<string> = new Array();
 let arr3: string[] = ['hello', 'world'];
 let arr4: Array<string> = ['hello', 'world'];
 let flags1: boolean[] = [true, false, true, false];
-let flags2: boolean[] = new Array<boolean>(false, true);
+let flags2: Array<boolean> = new Array(false, true);
+console.log(flags1);
+console.log(flags2);
+
+// array operations
+let users: string[] = [];
+users.push('user1');
+console.log(`First user: ${users[0]}`);
+
+// enum
