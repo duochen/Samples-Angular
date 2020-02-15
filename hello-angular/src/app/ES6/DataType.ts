@@ -41,3 +41,29 @@ users.push('user1');
 console.log(`First user: ${users[0]}`);
 
 // enum
+enum Suit {Club, Diamond, Heart, Spade};
+let s: Suit = Suit.Spade;
+console.log("enum: Suit ", Suit[s]);
+
+enum Suit1 {Club=1, Diamond=2, Heart=4, Spade=8};
+console.log("enum: Suit1 ", Suit1[4]);
+
+// any
+let obj: any = {
+    log(message) {
+        console.log(message);
+    }
+}
+
+obj.log('hello world');
+// obj.helloworld('log');
+
+// void
+class Logger {
+    log(message: string): void {
+        console.log(message);
+    }
+}
+
+const l = new Logger();
+l.log("message");

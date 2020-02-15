@@ -25,6 +25,46 @@ var flags1 = [true, false, true, false];
 var flags2 = new Array(false, true);
 console.log(flags1);
 console.log(flags2);
+// array operations
 var users = [];
 users.push('user1');
 console.log("First user: " + users[0]);
+// enum
+var Suit;
+(function (Suit) {
+    Suit[Suit["Club"] = 0] = "Club";
+    Suit[Suit["Diamond"] = 1] = "Diamond";
+    Suit[Suit["Heart"] = 2] = "Heart";
+    Suit[Suit["Spade"] = 3] = "Spade";
+})(Suit || (Suit = {}));
+;
+var s = Suit.Spade;
+console.log("enum: Suit ", Suit[s]);
+var Suit1;
+(function (Suit1) {
+    Suit1[Suit1["Club"] = 1] = "Club";
+    Suit1[Suit1["Diamond"] = 2] = "Diamond";
+    Suit1[Suit1["Heart"] = 4] = "Heart";
+    Suit1[Suit1["Spade"] = 8] = "Spade";
+})(Suit1 || (Suit1 = {}));
+;
+console.log("enum: Suit1 ", Suit1[4]);
+// any
+var obj = {
+    log: function (message) {
+        console.log(message);
+    }
+};
+obj.log('hello world');
+// obj.helloworld('log');
+// void
+var Logger = /** @class */ (function () {
+    function Logger() {
+    }
+    Logger.prototype.log = function (message) {
+        console.log(message);
+    };
+    return Logger;
+}());
+var l = new Logger();
+l.log("message");
