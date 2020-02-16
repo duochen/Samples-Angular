@@ -67,3 +67,56 @@ class Logger {
 
 const l = new Logger();
 l.log("message");
+
+function fn(x: () => void) {
+    x();
+}
+
+fn(() => 
+    { console.log(
+        "Called from function")
+    });
+
+interface ILogger {
+    log(message: string): void;
+    warn(message: string): void;
+    error(message: string): void;
+}
+
+// class
+class Widget {
+    id: string;
+    x: number;
+    y: number;
+
+    constructor(id: string) {
+        this.id = id;
+        this.x = 0;
+        this.y = 0;
+    }
+
+    render() {
+        console.log(`Rendering widget "${this.id}"`);
+    }
+}
+
+let widget = new Widget('text1');
+widget.render();
+
+// getter and setter
+class User {
+    firstName: string;
+    lastName: string;
+
+    get fullName(): string {
+        return `${this.firstName} ${this.lastName}`.trim();
+    }
+
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
+
+let user = new User('Joan', 'Doe');
+console.log(`User full name is: ${user.fullName}`);

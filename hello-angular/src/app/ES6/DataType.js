@@ -68,3 +68,40 @@ var Logger = /** @class */ (function () {
 }());
 var l = new Logger();
 l.log("message");
+function fn(x) {
+    x();
+}
+fn(function () {
+    console.log("Called from function");
+});
+// class
+var Widget = /** @class */ (function () {
+    function Widget(id) {
+        this.id = id;
+        this.x = 0;
+        this.y = 0;
+    }
+    Widget.prototype.render = function () {
+        console.log("Rendering widget \"" + this.id + "\"");
+    };
+    return Widget;
+}());
+var widget = new Widget('text1');
+widget.render();
+// getter and setter
+var User = /** @class */ (function () {
+    function User(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    Object.defineProperty(User.prototype, "fullName", {
+        get: function () {
+            return (this.firstName + " " + this.lastName).trim();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return User;
+}());
+var user = new User('Joan', 'Doe');
+console.log("User full name is: " + user.fullName);
