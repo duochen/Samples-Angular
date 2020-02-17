@@ -1,0 +1,19 @@
+{
+  "name": "es6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "build": "tsc --module system ./app/app.ts",
+    "serve": "wsrv -p 1234 -s -0",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "systemjs": "^0.20.5",
+    "typescript": "^3.6.3",
+    "wsrv": "^0.1.6"
+  }
+}
