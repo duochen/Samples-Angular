@@ -1,3 +1,23 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 // boolean 
 var isEnabled = true;
 console.log(isEnabled);
@@ -71,12 +91,25 @@ var Logger = /** @class */ (function () {
         if (level === void 0) { level = 1; }
         console.log("(" + level + "): (" + message + ")");
     };
+    Logger.prototype.showErrors = function () {
+        var errors = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            errors[_i] = arguments[_i];
+        }
+        for (var _a = 0, errors_1 = errors; _a < errors_1.length; _a++) {
+            var err = errors_1[_a];
+            console.error(err);
+        }
+    };
     return Logger;
 }());
 var l = new Logger();
 l.log("message");
 l.log('Applcation error', 3);
 l.log('Default Parameter');
+l.showErrors('Something', 'went', 'wrong', 'waha');
+var errors = ['something', 'went', 'wrong'];
+l.showErrors.apply(l, __spreadArrays(['Error'], errors, ['!']));
 function fn(x) {
     x();
 }
@@ -97,11 +130,12 @@ var Widget = /** @class */ (function () {
 }());
 var widget = new Widget('text1');
 widget.render();
+widget.id = '3';
 // getter and setter
 var User = /** @class */ (function () {
     function User(firstName, lastName) {
-        this.firstName = firstName;
         this.lastName = lastName;
+        this.firstName = firstName;
     }
     Object.defineProperty(User.prototype, "firstName", {
         get: function () {
@@ -156,3 +190,79 @@ var NumberWidget = /** @class */ (function () {
     };
     return NumberWidget;
 }());
+// inheritance
+var Animal = /** @class */ (function () {
+    function Animal(name) {
+        this.name = name;
+    }
+    Animal.prototype.makeSound = function () {
+        console.log('Unknown sound');
+    };
+    return Animal;
+}());
+var Dog = /** @class */ (function (_super) {
+    __extends(Dog, _super);
+    function Dog(name) {
+        return _super.call(this, name) || this;
+    }
+    Dog.prototype.makeSound = function () {
+        console.log('Woof-woof');
+    };
+    return Dog;
+}(Animal));
+var Cat = /** @class */ (function (_super) {
+    __extends(Cat, _super);
+    function Cat(name) {
+        return _super.call(this, name) || this;
+    }
+    Cat.prototype.makeSound = function () {
+        console.log('Meow');
+    };
+    return Cat;
+}(Animal));
+var dog = new Dog('Spot');
+var cat = new Cat('Tom');
+dog.makeSound();
+cat.makeSound();
+var PlainTextComponent = /** @class */ (function () {
+    function PlainTextComponent() {
+    }
+    PlainTextComponent.prototype.render = function () {
+        console.log('rendering plain component');
+    };
+    return PlainTextComponent;
+}());
+var RichTextComponent = /** @class */ (function () {
+    function RichTextComponent() {
+    }
+    RichTextComponent.prototype.render = function () {
+        console.log('rendering text component');
+    };
+    return RichTextComponent;
+}());
+// abstract classes
+var PageComponent = /** @class */ (function () {
+    function PageComponent() {
+    }
+    PageComponent.prototype.renderHeader = function () {
+    };
+    PageComponent.prototype.renderFooter = function () {
+    };
+    return PageComponent;
+}());
+var HomePageComponent = /** @class */ (function (_super) {
+    __extends(HomePageComponent, _super);
+    function HomePageComponent() {
+        var _this = _super.call(this) || this;
+        _this.renderContent();
+        return _this;
+    }
+    HomePageComponent.prototype.renderContent = function () {
+        this.renderHeader();
+        console.log('rendering home page');
+        this.renderFooter();
+    };
+    return HomePageComponent;
+}(PageComponent));
+var homePage = new HomePageComponent();
+homePage.renderContent();

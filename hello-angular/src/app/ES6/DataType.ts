@@ -70,12 +70,21 @@ class Logger {
     logWithDefault(message: string, level: number = 1) {
         console.log(`(${level}): (${message})`);
     }
+
+    showErrors(...errors: string[]) {
+        for (let err of errors) {
+            console.error(err);
+        }
+    }
 }
 
 const l = new Logger();
 l.log("message");
 l.log('Applcation error', 3);
 l.log('Default Parameter');
+l.showErrors('Something', 'went', 'wrong', 'waha');
+let errors = ['something','went','wrong'];
+l.showErrors('Error', ...errors, '!');
 
 function fn(x: () => void) {
     x();
@@ -111,11 +120,12 @@ class Widget {
 
 let widget = new Widget('text1');
 widget.render();
+widget.id = '3';
+
 
 // getter and setter
 class User {
     _firstName: string;
-    lastName: string;
 
     get firstName(): string {
         return this._firstName;
@@ -131,9 +141,8 @@ class User {
         return `${this.firstName} ${this.lastName}`.trim();
     }
 
-    constructor(firstName: string, lastName: string) {
+    constructor(firstName: string, public lastName: string) {
         this.firstName = firstName;
-        this.lastName = lastName;
     }
 }
 
@@ -172,3 +181,90 @@ class NumberWidget {
         return 10;
     }
 }
+
+// inheritance
+class Animal {
+    name: string;
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    makeSound() {
+        console.log('Unknown sound');
+    }
+}
+
+class Dog extends Animal {
+    constructor(name: string) {
+        super(name);
+    }
+
+    makeSound() {
+        console.log('Woof-woof');
+    }
+}
+
+class Cat extends Animal {
+    constructor(name: string) {
+        super(name);
+    }
+
+    makeSound() {
+        console.log('Meow');
+    }
+}
+
+let dog = new Dog('Spot');
+let cat = new Cat('Tom');
+
+dog.makeSound();
+cat.makeSound();
+
+// interface
+interface TextComponent {
+    text: string;
+    render(): void;
+}
+
+class PlainTextComponent implements TextComponent {
+    text: string;
+    render() {
+        console.log('rendering plain component');
+    }
+}
+
+class RichTextComponent implements TextComponent {
+    text: string;
+    render() {
+        console.log('rendering text component');
+    }
+}
+
+// abstract classes
+abstract class PageComponent {
+    abstract renderContent(): void;
+
+    renderHeader() {
+
+    }
+
+    renderFooter() {
+
+    }
+}
+
+class HomePageComponent extends PageComponent {
+    constructor() {
+        super();
+        this.renderContent();
+    }
+    
+    renderContent() {
+        this.renderHeader();
+        console.log('rendering home page');
+        this.renderFooter();
+    }
+}
+
+let homePage = new HomePageComponent();
+homePage.renderContent();
