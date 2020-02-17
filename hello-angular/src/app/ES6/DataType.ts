@@ -60,13 +60,22 @@ obj.log('hello world');
 
 // void
 class Logger {
-    log(message: string): void {
-        console.log(message);
+    log(message: string, level?: number) {
+        if (level === undefined) {
+            level = 1;
+        }
+        console.log(`(${level}): (${message})`);
+    }
+
+    logWithDefault(message: string, level: number = 1) {
+        console.log(`(${level}): (${message})`);
     }
 }
 
 const l = new Logger();
 l.log("message");
+l.log('Applcation error', 3);
+l.log('Default Parameter');
 
 function fn(x: () => void) {
     x();
@@ -105,8 +114,18 @@ widget.render();
 
 // getter and setter
 class User {
-    firstName: string;
+    _firstName: string;
     lastName: string;
+
+    get firstName(): string {
+        return this._firstName;
+    }
+
+    set firstName(value: string) {
+        if (value) { 
+            this._firstName = value.trim();
+        }
+    }
 
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`.trim();
@@ -120,3 +139,36 @@ class User {
 
 let user = new User('Joan', 'Doe');
 console.log(`User full name is: ${user.fullName}`);
+user.firstName = 'Mike';
+console.log(`User full name is: ${user.fullName}`);
+
+// methods
+class Sprite {
+    x: number;
+    y: number;
+
+    render() {
+        console.log(`rendering widget
+        ${this.x}:${this.y}`);
+    }
+
+    moveTo(x:number, y:number) {
+        this.x = x;
+        this.y = y;
+        this.render();
+    }
+}
+
+let sprite = new Sprite();
+sprite.moveTo(5, 10);
+
+// return values
+class NumberWidget {
+    getId(): string {
+        return 'number1';
+    }
+
+    getValue(): number {
+        return 10;
+    }
+}

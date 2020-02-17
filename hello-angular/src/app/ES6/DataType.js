@@ -61,13 +61,22 @@ obj.log('hello world');
 var Logger = /** @class */ (function () {
     function Logger() {
     }
-    Logger.prototype.log = function (message) {
-        console.log(message);
+    Logger.prototype.log = function (message, level) {
+        if (level === undefined) {
+            level = 1;
+        }
+        console.log("(" + level + "): (" + message + ")");
+    };
+    Logger.prototype.logWithDefault = function (message, level) {
+        if (level === void 0) { level = 1; }
+        console.log("(" + level + "): (" + message + ")");
     };
     return Logger;
 }());
 var l = new Logger();
 l.log("message");
+l.log('Applcation error', 3);
+l.log('Default Parameter');
 function fn(x) {
     x();
 }
@@ -94,6 +103,18 @@ var User = /** @class */ (function () {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+    Object.defineProperty(User.prototype, "firstName", {
+        get: function () {
+            return this._firstName;
+        },
+        set: function (value) {
+            if (value) {
+                this._firstName = value.trim();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     Object.defineProperty(User.prototype, "fullName", {
         get: function () {
             return (this.firstName + " " + this.lastName).trim();
@@ -105,3 +126,33 @@ var User = /** @class */ (function () {
 }());
 var user = new User('Joan', 'Doe');
 console.log("User full name is: " + user.fullName);
+user.firstName = 'Mike';
+console.log("User full name is: " + user.fullName);
+// methods
+var Sprite = /** @class */ (function () {
+    function Sprite() {
+    }
+    Sprite.prototype.render = function () {
+        console.log("rendering widget\n        " + this.x + ":" + this.y);
+    };
+    Sprite.prototype.moveTo = function (x, y) {
+        this.x = x;
+        this.y = y;
+        this.render();
+    };
+    return Sprite;
+}());
+var sprite = new Sprite();
+sprite.moveTo(5, 10);
+// return values
+var NumberWidget = /** @class */ (function () {
+    function NumberWidget() {
+    }
+    NumberWidget.prototype.getId = function () {
+        return 'number1';
+    };
+    NumberWidget.prototype.getValue = function () {
+        return 10;
+    };
+    return NumberWidget;
+}());
