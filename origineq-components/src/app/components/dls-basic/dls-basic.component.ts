@@ -8,6 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./dls-basic.component.scss']
 })
 export class DlsBasicComponent implements OnInit {
+  clickMessage = '';
 
   constructor(
     private matIconRegistry: MatIconRegistry,
@@ -17,6 +18,10 @@ export class DlsBasicComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  onClickMe() {
+    this.clickMessage = 'You are my hero!';
   }
 
 }

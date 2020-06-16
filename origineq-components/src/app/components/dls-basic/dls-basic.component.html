@@ -1,2 +1,21 @@
 <p>dls-basic works!</p>
-<button slb-icon-button><mat-icon svgIcon="emoji"></mat-icon></button>
+<button slb-icon-button (click)="onClickMe()"><mat-icon svgIcon="emoji"></mat-icon>
+</button>{{ clickMessage }}
+
+<button
+[disabled]="isDisabled"
+[color]="color"
+slb-button
+>
+Primary
+</button>
+
+<a
+[disabled]="isDisabled"
+[color]="color"
+slb-icon-button
+routerLink="."
+title="Example icon-button with an approved icon"
+>
+<mat-icon svgIcon="approved"></mat-icon>
+</a>
