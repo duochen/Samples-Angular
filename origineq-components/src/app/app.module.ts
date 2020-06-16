@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DlsBasicComponent } from './components/dls-basic/dls-basic.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DlsBasicComponent
   ],
   imports: [
     BrowserModule,
