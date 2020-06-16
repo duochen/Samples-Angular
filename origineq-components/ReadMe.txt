@@ -5,6 +5,7 @@ This project contains the code to test the components used by OriginEq:
 - highchart
 
 ## Installation
+0. Create .nprmc
 1. Install [yarn package manager](https://yarnpkg.com)
 2. Make sure you have access to Package Manager to install dls/wiq packages.
 3. Get access tokens:
@@ -20,4 +21,13 @@ This project contains the code to test the components used by OriginEq:
     - https://slb-swt.visualstudio.com/liftiq/_packaging?feed=slb-wiq&_a=feed
     - https://slb-swt.visualstudio.com/liftiq/_packaging?feed=slb-dls&_a=feed
 
+# Install package
+> npm i @slb-dls/angular-material
+> npm i @angular/material @angular/cdk @angular/material-moment-adapter moment
 
+# Modify angular.json
+
+# Add stylesheet to index.html
+
+# Upgrade Angular from 8 to 9
+> ng update @angular/cli @angular/core --next
