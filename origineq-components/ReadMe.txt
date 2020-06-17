@@ -35,3 +35,11 @@ This project contains the code to test the components used by OriginEq:
 # Install ag-grid
 > npm install --save ag-grid-community ag-grid-angular
 > npm install # in certain circumstances npm will perform an "auto prune". This step ensures all expected dependencies are present
+
+# Install highcharts
+> npm install angular-highcharts --save
+> npm instal highcharts -- save
+
+https://stackblitz.com/edit/angular-highcharts-example
+
+
