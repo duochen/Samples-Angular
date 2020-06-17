@@ -7,8 +7,6 @@ import { Chart } from 'angular-highcharts';
   styleUrls: ['./highcharts-basic.component.scss']
 })
 export class HighchartsBasicComponent implements OnInit {
-  constructor() { }
-
   chart = new Chart({
     chart: {
       type: 'line'
@@ -21,8 +19,9 @@ export class HighchartsBasicComponent implements OnInit {
     },
     series: [
       {
+        type: 'line',
         name: 'Line 1',
-        data: [1, 2, 3]
+        data: [1, 2, 3, 4]
       }
     ]
   });
