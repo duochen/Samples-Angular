@@ -13,13 +13,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule} from '@angular/common/http';
 import { AgGridBasicComponent } from './components/ag-grid-basic/ag-grid-basic.component';
 import { HighchartsBasicComponent } from './components/highcharts-basic/highcharts-basic.component';
+import { PostComponent } from './components/post/post.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DlsBasicComponent,
     AgGridBasicComponent,
-    HighchartsBasicComponent
+    HighchartsBasicComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
