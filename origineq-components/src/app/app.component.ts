@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PostInfo } from './model/post-info';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'origineq-components';
-  posts = [
+  posts: Array<PostInfo> = [
     {
       id: 1,
       title: 'How to Redirect to another Page in Angular?'
