@@ -1,0 +1,1 @@
+https://medium.com/javascript-everyday/reusable-components-with-configurable-templates-in-angular-3c55741c97f3
