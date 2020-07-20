@@ -15,6 +15,7 @@ import { AgGridBasicComponent } from './components/ag-grid-basic/ag-grid-basic.c
 import { HighchartsBasicComponent } from './components/highcharts-basic/highcharts-basic.component';
 import { PostComponent } from './components/post/post.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { CustomCounterComponent } from './components/custom-counter/custom-counter.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CounterComponent } from './components/counter/counter.component';
     AgGridBasicComponent,
     HighchartsBasicComponent,
     PostComponent,
-    CounterComponent
+    CounterComponent,
+    CustomCounterComponent
   ],
   imports: [
     BrowserModule,
