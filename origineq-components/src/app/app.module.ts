@@ -14,6 +14,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AgGridBasicComponent } from './components/ag-grid-basic/ag-grid-basic.component';
 import { HighchartsBasicComponent } from './components/highcharts-basic/highcharts-basic.component';
 import { PostComponent } from './components/post/post.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PostComponent } from './components/post/post.component';
     DlsBasicComponent,
     AgGridBasicComponent,
     HighchartsBasicComponent,
-    PostComponent
+    PostComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
