@@ -32,13 +32,17 @@ export class HighchartsOnlyComponent implements OnInit, OnChanges, OnDestroy, Af
   private updateChart(): void {
     let highChart: Highcharts.Chart;
     highChart = Highcharts.chart({
+      chart: {
+        renderTo: 'container',
+        type: 'line'
+      },
       title: {
           text: 'Custom legend symbol'
       },
 
       series: [{
           type: 'line',
-          data: [1, 2, 3, 4],
+          data: [1, 2, 3, 4 ,5, 6],
           color: 'red',
           negativeColor: 'lightblue',
           marker: {
