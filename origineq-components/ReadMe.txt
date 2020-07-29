@@ -43,3 +43,14 @@ This project contains the code to test the components used by OriginEq:
 https://stackblitz.com/edit/angular-highcharts-example
 
 
+## Highchart reference
+https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/studies/legend-custom-symbol/
+
+https://jsfiddle.net/gh/get/library/pure/highcharts/highcharts/tree/master/samples/highcharts/series-label/stock-chart
+
+https://api.highcharts.com/highcharts/series.line.label
+
+https://api.highcharts.com/highcharts/legend
+
+
+
