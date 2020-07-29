@@ -16,6 +16,7 @@ import { HighchartsBasicComponent } from './components/highcharts-basic/highchar
 import { PostComponent } from './components/post/post.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { CustomCounterComponent } from './components/custom-counter/custom-counter.component';
+import { HighchartsOnlyComponent } from './components/highcharts-only/highcharts-only.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CustomCounterComponent } from './components/custom-counter/custom-count
     HighchartsBasicComponent,
     PostComponent,
     CounterComponent,
-    CustomCounterComponent
+    CustomCounterComponent,
+    HighchartsOnlyComponent
   ],
   imports: [
     BrowserModule,
