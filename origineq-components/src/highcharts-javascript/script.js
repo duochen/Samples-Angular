@@ -11,13 +11,15 @@ Highcharts.chart('chart', {
   //   }
   // },
   // chart: { polar: true},
+  chart: { type: 'bar' },
 
   title: { text: 'Sales' },
   subtitle: { text: 'Fiscal Year 2020' },
   xAxis: [
     {
       title: { text: 'Month' },
-      categories: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun' ]
+      type: 'category',
+      reversed: false
     }
   ],
   yAxis: [
@@ -27,31 +29,37 @@ Highcharts.chart('chart', {
     }
   ],
 
-  series: [
-    {
-      name: 'Model R',
-      data: [ [0,5],
-              [1,8],
-              {
-                x: 2,
-                y: 11,
-                name: 'Trade Show',
-                color: '#FF9FFF'
-              },
-              [3,19],
-              [4,7],
-              [5,8]],
-      color: '#2A9FBC'
-    },
-    // {
-    //   name: 'Model R2',
-    //   data: [3, 4, 13, 36, 27, 18],
-    //   color: '#F15B2A'
-    // }
+  // series: [
+  //   {
+  //     name: 'Model R',
+  //     data: [ ['Jan',5],
+  //             ['Feb',8],
+  //             {
+  //               x: 2,
+  //               y: 11,
+  //               name: 'Mar',
+  //               color: '#FF9FFF'
+  //             },
+  //             ['Apr',19],
+  //             ['May',7],
+  //             ['Jun',8]],
+  //     dataSorting: {
+  //       enabled: true,
+  //       sortKey: 'name'
+  //     },
+  //     color: '#2A9FBC'
+  //   },
+  //   // {
+  //   //   name: 'Model R2',
+  //   //   data: [3, 4, 13, 36, 27, 18],
+  //   //   color: '#F15B2A'
+  //   // }
 
-  ],
+  //   ],
 
-
+  data: {
+    csvURL: 'file:///D:/myproject/Samples-Angular/origineq-components/src/highcharts-javascript/data.csv'
+  },
 
   legend: { enabled: true }
 });
