@@ -29,7 +29,7 @@ export class HighchartsBasicComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // add point to chart serie
+  // add point to chart series
   add() {
     this.chart.addPoint(Math.floor(Math.random() * 10));
   }

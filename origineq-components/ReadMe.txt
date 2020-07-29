@@ -52,5 +52,7 @@ https://api.highcharts.com/highcharts/series.line.label
 
 https://api.highcharts.com/highcharts/legend
 
+https://github.com/m-haziq/highcharts-simplified/tree/master/src/app
+
 
 
