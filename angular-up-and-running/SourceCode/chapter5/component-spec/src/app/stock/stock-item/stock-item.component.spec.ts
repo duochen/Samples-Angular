@@ -5,7 +5,6 @@ import { Stock } from '../../model/stock';
 import { By } from '@angular/platform-browser';
 
 describe('Stock Item Component', () => {
-
   let fixture, component;
 
   beforeEach(async(() => {
@@ -19,7 +18,7 @@ describe('Stock Item Component', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(StockItemComponent);
     component = fixture.componentInstance;
-    component.stock = new Stock('Testing Stock', 'TS', 100, 200);
+    component.stock =  new Stock('Testing Stock', 'TS', 100, 200);
     fixture.detectChanges();
   });
 
@@ -34,9 +33,10 @@ describe('Stock Item Component', () => {
 
   it('should trigger event emitter on add to favorite', () => {
     let selectedStock: Stock;
-    component.toggleFavorite.subscribe((stock: Stock) => selectedStock = stock);
+    component.toggleFavorite.subscribe((stock: Stock) => {
+      selectedStock = stock;
+    });
     const addToFavoriteBtnEl = fixture.debugElement.query(By.css('button'));
-
     expect(selectedStock).toBeUndefined();
     addToFavoriteBtnEl.triggerEventHandler('click', null);
     expect(selectedStock).toEqual(component.stock);
