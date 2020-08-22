@@ -19,12 +19,12 @@ describe('HerosComponent', () => {
     component = new HeroesComponent(mockHeroService);
   });
 
-  describe('delete', () => {
+  describe('deleteHero', () => {
     it('should remove the indicated hero from the heroes list', () => {
       mockHeroService.deleteHero.and.returnValue(of(true));
       component.heroes = HEROS;
 
-      component.delete(HEROS[2]);
+      component.deleteHero(HEROS[2]);
 
       expect(component.heroes.length).toBe(2);
     });
@@ -33,7 +33,7 @@ describe('HerosComponent', () => {
       mockHeroService.deleteHero.and.returnValue(of(true));
       component.heroes = HEROS;
 
-      component.delete(HEROS[2]);
+      component.deleteHero(HEROS[2]);
 
       expect(mockHeroService.deleteHero).toHaveBeenCalledWith(HEROS[2]); //{id: 3, name: 'SuperDude', strength: 55});
     });
