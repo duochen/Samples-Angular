@@ -6,7 +6,7 @@ import { of } from 'rxjs';
 import { Hero } from '../hero';
 import { By } from '@angular/platform-browser';
 
-describe('HerosComponent', () => {
+describe('HerosComponent (shallow test)', () => {
   let fixture: ComponentFixture<HeroesComponent>;
   let mockHeroService;
   let HEROS;
