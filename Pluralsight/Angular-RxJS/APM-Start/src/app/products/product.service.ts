@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { combineLatest, Observable, throwError, BehaviorSubject, Subject, merge } from 'rxjs';
-import { catchError, filter, map, scan, tap } from 'rxjs/operators';
+import { catchError, filter, map, scan, shareReplay, tap } from 'rxjs/operators';
 
 import { Product } from './product';
 import { Supplier } from '../suppliers/supplier';
@@ -16,6 +16,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class ProductService {
   private productsUrl = 'api/products';
   private suppliersUrl = this.supplierService.suppliersUrl;
+
   product$ = this.http.get<Product[]>(this.productsUrl)
   .pipe(
     map(products => products.map(
@@ -27,7 +28,7 @@ export class ProductService {
         }
       ) as Product
     )),
-    tap(data => console.log('Products: ', JSON.stringify(data))),
+    // tap(data => console.log('Products: ', JSON.stringify(data))),
     catchError(this.handleError)
   );
 
@@ -41,7 +42,8 @@ export class ProductService {
         price: product.price * 1.5,
         category: categories.find(c => product.categoryId === c.id).name,
         searchKey: [product.productName]
-      }) as Product)
+      }) as Product),
+      shareReplay(1)
     )
   );
 
@@ -55,7 +57,8 @@ export class ProductService {
           products.find(
             product => product.id === selectedProductId)
             ),
-        tap(product => console.log('selectedProduct ', product))
+        tap(product => console.log('selectedProduct ', product)),
+        shareReplay(1)
       );
 
   private productInsertedSubject = new Subject<Product>();
@@ -76,7 +79,7 @@ export class ProductService {
 
   addProduct(newProduct?: Product) {
     newProduct = newProduct || this.fakeProduct();
-    this.productInsertedSubject.next(newProduct)
+    this.productInsertedSubject.next(newProduct);
   }
 
   private fakeProduct(): Product {
