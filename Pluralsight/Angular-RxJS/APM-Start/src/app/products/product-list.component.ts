@@ -1,7 +1,7 @@
-import { catchError, map, startWith, takeUntil } from 'rxjs/operators';
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { catchError, map } from 'rxjs/operators';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { BehaviorSubject, combineLatest, EMPTY, interval, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, EMPTY } from 'rxjs';
 
 import { ProductService } from './product.service';
 import { ProductCategoryService } from '../product-categories/product-category.service';
@@ -11,11 +11,9 @@ import { ProductCategoryService } from '../product-categories/product-category.s
   styleUrls: ['./product-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductListComponent implements OnInit, OnDestroy {
+export class ProductListComponent {
   pageTitle = 'Product List';
   errorMessage = '';
-  private source$ = interval(1000);
-  private readonly unsubscribe$: Subject<boolean> = new Subject();
 
   private categorySelectedSubject = new BehaviorSubject<number>(0);
   categorySelectedAction$ = this.categorySelectedSubject.asObservable();
@@ -46,17 +44,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   constructor(private productService: ProductService,
               private productCategoryService: ProductCategoryService) { }
-
-  ngOnDestroy(): void {
-    console.log('Destroy');
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
-  ngOnInit(): void {
-    this.source$
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe(second => console.log("Timer: ", second))
-  }
 
   onAdd(): void {
     this.productService.addProduct();
