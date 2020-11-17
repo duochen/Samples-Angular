@@ -13,6 +13,11 @@ import { PageNotFoundComponent } from './page-not-found.component';
         loadChildren: () =>
           import('./products/product.module').then(m => m.ProductModule)
       },
+      {
+        path: 'demo',
+        loadChildren: () =>
+          import('./demo/demo.module').then(m => m.DemoModule)
+      },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent }
     ])
