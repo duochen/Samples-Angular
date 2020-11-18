@@ -15,5 +15,5 @@ take, takeUntil
 switchMap, withLatestFrom, distinctUntilChanged
 map, pluck,  shareReplay,
 debounceTime,  toArray, refCount, startWith,
-publishReplay, mapTo
+publishReplay, mapTo, scan
 
