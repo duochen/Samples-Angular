@@ -9,7 +9,7 @@ RXJS Operators
 retryWhen, catchError
 
 - Filtering to Multiple Results
-take, takeUntil, takeWhile, distinctUntilChanged, filter
+take, takeUntil, takeWhile, distinct, distinctUntilChanged, filter
 
 - Filtering to One Results
 find
