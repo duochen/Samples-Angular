@@ -9,11 +9,32 @@ RXJS Operators
 retryWhen, catchError
 
 - Filtering to Multiple Results
+take, takeUntil, distinctUntilChanged, filter
 
-delay, delayWhen, 
-take, takeUntil
-switchMap, withLatestFrom, distinctUntilChanged
-map, pluck,  shareReplay,
-debounceTime,  toArray, refCount, startWith,
-publishReplay, mapTo, scan
+- Filtering to One Results
+find
+
+- Grouping Observables
+withLatestFrom, combineAll, mergeAll
+
+- Grouping Values
+toArray, switchAll
+
+- Observable Transformation
+
+- Time, Duration, & Scheduled
+debounceTime, delay, delayWhen, timestamp 
+
+- Value Transformation
+switchMap,  map, pluck, mapTo, scan  
+
+- Multcasting
+shareReplay, share, publishReplay
+
+- Utitlies
+tap, count, isEmpty
+
+- Others
+refCount, startWith
+ 
 
