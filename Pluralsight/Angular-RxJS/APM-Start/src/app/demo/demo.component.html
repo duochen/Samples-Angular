@@ -3,6 +3,10 @@
     {{pageTitle}}
   </div>
   <div class="card-body">
-
+    <div class='container'>
+      <input #newFruit type='text' placeholder='Enter a new fruit'>
+      <button (click)='addFruit(newFruit.value)'>Add Fruit</button>
+      <pm-food [data]='fruits'></pm-food>
+    </div>
   </div>
 </div>
