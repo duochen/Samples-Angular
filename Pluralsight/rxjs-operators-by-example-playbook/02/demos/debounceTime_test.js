@@ -9,7 +9,7 @@
 // if within a given period of time, the source does not emit anything new, emit the current value
 
 const { Observable } = require('rxjs');
-const { debounceTime, tap } = require('rxjs/operators');
+const { debounceTime, tap, timestamp } = require('rxjs/operators');
 
 
 const events = Observable.create(observer => {
@@ -19,6 +19,11 @@ const events = Observable.create(observer => {
 })
 
 events.pipe(
-    tap(x => console.log("tap: ", x)),
+    timestamp(),
     debounceTime(500)
-).subscribe(console.log)
+).subscribe(
+    d => { 
+        console.log(`${d.value} at ${new Date(d.timestamp)}`);
+        console.log(d);
+    }
+)

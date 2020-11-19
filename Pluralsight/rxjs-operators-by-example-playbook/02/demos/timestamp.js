@@ -21,5 +21,5 @@ console.log('# wrap every value with the timestamp');
 source.pipe(timestamp()).subscribe(d => {
     console.log('');
     console.log(`${d.value} at ${new Date(d.timestamp)}`);
-    console.log(d);
+    console.log('Result: ', d);
 });
