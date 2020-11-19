@@ -26,7 +26,7 @@ toArray, switchAll
 debounceTime, delay, delayWhen, timestamp 
 
 - Value Transformation
-switchMap,  map, pluck, mapTo, scan  
+pluck, map, mapTo, switchMap,  scan  
 
 - Multcasting
 shareReplay, share, publishReplay
