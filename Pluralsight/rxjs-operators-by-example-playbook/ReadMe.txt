@@ -29,7 +29,7 @@ debounceTime, delay, delayWhen, timestamp
 pluck, map, mapTo, switchMap, mergeMap, concatMap, scan  
 
 - Multcasting
-shareReplay, share, publishReplay
+shareReplay, share, publish, publishReplay
 
 - Utitlies
 tap, count, isEmpty
