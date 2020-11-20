@@ -1,4 +1,5 @@
-import { Observable } from 'rxjs';
+import { Observable, fromEvent, interval } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 var observable = Observable.create((observer: any) => {
     observer.next('Hello World');
@@ -19,3 +20,16 @@ function logItem(val:any) {
     node.appendChild(textnode);
     document.getElementById("list").appendChild(node);
 }
+
+var button = document.getElementById('button1');
+var obs1 = fromEvent(button, 'click');
+var obs2 = interval(1000);
+
+obs1.pipe(
+    switchMap(
+        event => {
+            return obs2
+        }
+    )).subscribe(
+        value => console.log(value)
+    )
