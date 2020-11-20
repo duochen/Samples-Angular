@@ -1,5 +1,5 @@
 import { Observable, fromEvent, interval, of } from 'rxjs';
-import { tap, map, switchMap, mergeMap, delay } from 'rxjs/operators';
+import { pluck, tap, map, switchMap, mergeMap, delay, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 // Test Observable
 var observable = Observable.create((observer: any) => {
@@ -74,3 +74,17 @@ obs1$.pipe(
         span.textContent = combinedValue;
     }    
 )
+
+// Test pluck
+const input3 = document.querySelector('#input3');
+const obs3$ = fromEvent(input3, 'input');
+obs3$
+    .pipe(
+        //map((event: any) => event.target.value),
+        pluck('target', 'value'),
+        debounceTime(500),
+        distinctUntilChanged()
+    )
+    .subscribe(
+        value => console.log(value)
+    )  
