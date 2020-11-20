@@ -1,6 +1,7 @@
-import { Observable, fromEvent, interval } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable, fromEvent, interval, of } from 'rxjs';
+import { tap, map, switchMap, mergeMap, delay } from 'rxjs/operators';
 
+// Test Observable
 var observable = Observable.create((observer: any) => {
     observer.next('Hello World');
     observer.next('Hello Again!');
@@ -21,8 +22,9 @@ function logItem(val: any) {
     document.getElementById("list").appendChild(node);
 }
 
-var button = document.getElementById('button1');
-var obs1 = fromEvent(button, 'click');
+// Test switchMap
+var button1 = document.getElementById('button1');
+var obs1 = fromEvent(button1, 'click');
 var obs2 = interval(1000);
 
 obs1.pipe(
@@ -33,3 +35,42 @@ obs1.pipe(
     )).subscribe(
         value => console.log(value)
     )
+
+// Test mergeMap
+// faking network request for save
+const saveLocation = (location: any) => {
+    return of(location).pipe(delay(500));
+};
+const button2 = document.getElementById('button2');
+const click$ = fromEvent(button2, 'click');
+click$
+    .pipe(
+        mergeMap((e: MouseEvent) => {
+            return saveLocation({
+                x: e.clientX,
+                y: e.clientY,
+                timestamp: Date.now()
+            })
+        })
+    )
+    .subscribe(r => console.log('Saved!', r))    
+
+const input1 = document.querySelector('#input1');
+const input2 = document.querySelector('#input2');
+const span = document.querySelector('span');
+const obs1$ = fromEvent(input1, 'input');
+const obs2$ = fromEvent(input2, 'input');
+obs1$.pipe(
+    mergeMap(
+        (event1: any) => {
+            return obs2$.pipe(
+                map((event2: any)  => event1.target.value + ' ' + event2.target.value)
+            )
+        }
+    )
+).subscribe(
+    combinedValue => {
+        // console.log(combinedValue);
+        span.textContent = combinedValue;
+    }    
+)
