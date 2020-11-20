@@ -9,12 +9,12 @@ var observable = Observable.create((observer: any) => {
 });
 
 observable.subscribe(
-    (x:any) => logItem(x),
+    (x: any) => logItem(x),
     (error: any) => logItem('Error: ' + error),
     () => logItem('Completed')
 );
 
-function logItem(val:any) {
+function logItem(val: any) {
     var node = document.createElement('li');
     var textnode = document.createTextNode(val);
     node.appendChild(textnode);
