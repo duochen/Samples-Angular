@@ -88,3 +88,44 @@ obs3$
     .subscribe(
         value => console.log(value)
     )  
+
+// Test difference between Promise and Observable
+console.clear();
+
+// Look at the similarities of the two constructors
+const p = new Promise((resolve, reject) => {
+    console.log('CREATING PROMISE');
+    resolve("THIS IS A PROMISE");
+    resolve("THIS IS ANOTHER PROMISE");
+})
+
+let count = 0;
+const o = new Observable((observer) =>  {
+    console.log('CREATING OBSERVABLE');
+    setInterval(() => {
+        if (count++ > 3) observer.complete();
+        observer.next("THIS IS AN OBSERVERALBE");
+    }, 1000);
+    // observer.next("THIS IS ANOHTER OBSERVERALBE");
+    //observer.error("THIS IS AN ERROR");
+    //observer.complete();
+})
+
+const p2 = p.then((res) => {
+    // Success
+    console.log('Promise Success: ', res)
+}, (err) => {
+    // Error
+    console.log('Promise Error')
+});
+
+const subscription = o.subscribe((res) => {
+    // Success
+    console.log('Obs Success: ', res)
+}, (err) => {
+    // Error
+    console.log('Obs Error')
+}, () => {
+    // Complete
+    console.log('Obs Commplete')
+})
