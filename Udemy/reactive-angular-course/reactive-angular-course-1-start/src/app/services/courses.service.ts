@@ -19,4 +19,11 @@ export class CourseService {
         shareReplay()
       );
   }
+
+  saveCourse(id: string, changes: Partial<Course>): Observable<any> {
+    return this.http.put(`/api/courses/${id}`, changes)
+      .pipe(
+        shareReplay()
+      );
+  }
 }
