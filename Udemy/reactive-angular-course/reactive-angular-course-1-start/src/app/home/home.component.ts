@@ -4,6 +4,7 @@ import {Course, sortCoursesBySeqNo} from '../model/course';
 import {interval, noop, Observable, of, throwError, timer} from 'rxjs';
 import {catchError, delay, delayWhen, filter, finalize, map, retryWhen, shareReplay, tap} from 'rxjs/operators';
 import { CourseService } from '../services/courses.service';
+import { MessagesService } from '../messages/messages.service';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class HomeComponent implements OnInit {
   advancedCourses$: Observable<Course[]>;
 
 
-  constructor(private courseService: CourseService, private loadingService: LoadingService) {
+  constructor(private courseService: CourseService,
+              private loadingService: LoadingService,
+              private messagesService: MessagesService) {
 
   }
 
@@ -30,6 +33,12 @@ export class HomeComponent implements OnInit {
     const courses$ = this.courseService.loadAllCourses()
       .pipe(
         map(courses => courses.sort(sortCoursesBySeqNo)),
+        catchError(err => {
+          const message = 'Could not load courses';
+          this.messagesService.showErrors(message);
+          console.log(message, err);
+          throwError(err => )
+        })
       );
 
     const loadedCourses$ = this.loadingService.showLoaderUntilCompleted(courses$);
