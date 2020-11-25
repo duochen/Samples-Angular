@@ -23,12 +23,10 @@ export class LoadingService {
   }
 
   loadingOn() {
-    console.log('loadingOn...');
     this.loadingSubject.next(true);
   }
 
   loadingOff() {
-    console.log('loadingOff...');
     this.loadingSubject.next(false);
   }
 }
