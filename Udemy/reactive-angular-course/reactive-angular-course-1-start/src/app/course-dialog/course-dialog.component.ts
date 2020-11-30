@@ -1,4 +1,3 @@
-import { MessagesService } from './../messages/messages.service';
 import { CourseService } from './../services/courses.service';
 import {AfterViewInit, Component, ElementRef, Inject, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
