@@ -1,3 +1,4 @@
+import { CourseService } from './../services/courses.service';
 import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Course} from '../model/course';
@@ -23,17 +24,26 @@ import {Lesson} from '../model/lesson';
   styleUrls: ['./search-lessons.component.css']
 })
 export class SearchLessonsComponent implements OnInit {
+  searchResults$: Observable<Lesson[]>;
+  activeLesson: Lesson;
 
-  constructor() {
-
-
+  constructor(private coursesService: CourseService) {
   }
 
   ngOnInit() {
-
-
   }
 
+  onSearch(search: string) {
+    this.searchResults$ = this.coursesService.searchLessons(search);
+  }
+
+  openLesson(lesson: Lesson) {
+    this.activeLesson = lesson;
+  }
+
+  onBackToSearch() {
+    this.activeLesson = null;
+  }
 }
 
 

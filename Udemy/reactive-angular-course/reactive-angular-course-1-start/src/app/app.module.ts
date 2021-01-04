@@ -1,8 +1,5 @@
-import { MessagesService } from './messages/messages.service';
-import { LoadingService } from './loading/loading.service';
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -37,6 +34,11 @@ import {SearchLessonsComponent} from './search-lessons/search-lessons.component'
 import { LoadingComponent } from './loading/loading.component';
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 
+import { MessagesService } from './messages/messages.service';
+import { LoadingService } from './loading/loading.service';
+import { CommonModule } from '@angular/common';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +53,10 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
     SearchLessonsComponent,
     LoadingComponent,
     CoursesCardListComponent
-
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatMenuModule,
