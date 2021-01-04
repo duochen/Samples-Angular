@@ -1,12 +1,13 @@
 import { CoursesStore } from './../services/courses.store';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Course } from '../model/course';
 import { Observable} from 'rxjs';
 
 @Component({
   selector: 'home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent implements OnInit {
   beginnerCourses$: Observable<Course[]>;
