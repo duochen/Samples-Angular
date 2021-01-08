@@ -3,6 +3,7 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../../models/user';
+import { Router } from '@angular/router';
 
 const SMALL_WIDTH_BREAKPOINT = 720;
 
@@ -14,10 +15,11 @@ const SMALL_WIDTH_BREAKPOINT = 720;
 export class SidenavComponent implements OnInit {
 
   public isScreenSmall: boolean;
-  private users: Observable<User[]>;
+  public users: Observable<User[]>;
 
   constructor(private breakpointObserver: BreakpointObserver,
-    private userService: UserService) { }
+    private userService: UserService,
+    private route: Router) { }
 
   ngOnInit(): void {
     this.breakpointObserver.observe(
@@ -37,6 +39,7 @@ export class SidenavComponent implements OnInit {
 
     this.users.subscribe( data => {
       console.log(data);
+      if (data.length >0) this.route.navigate(['/contactmanager', data[0].id]);
     })
   }
 
