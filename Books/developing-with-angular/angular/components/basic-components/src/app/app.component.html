@@ -1,0 +1,16 @@
+<!-- <app-header
+  [title]="title"
+  (titleClick)="onTitleClicked()">
+</app-header> -->
+<app-header [title]="'hello ' + getTitle() + ' world'" (titleClick) = (onTitleClicked())>
+</app-header>
+
+<div>
+  Header clicks: {{ headerClicks }}
+</div>
+<div>
+  Footer clicks {{ footerClicks }}
+</div>
+
+<app-footer title="My footer" (titleClick) = 'onFooterClicked($event)'>
+</app-footer>
