@@ -25,7 +25,12 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@slb-dls/angular-material/assets/icons",
+                "output": "assets/icons"
+              }
             ],
             "styles": [
               "src/styles.scss"
