@@ -13,3 +13,13 @@ or
 ########## Run e2e Tests#######
 > nx e2e todos-e2e --watch
 > nx e2e todos-e2e --headless
+
+###########Install Nest########
+> nx list @nrwl/nest
+> npm install --save-dev @nrwl/nest
+> nx g @nrwl/nest:app api --frontendProject=todos
+
+###########Serve API ###########
+> nx serve api
+> nx build api
+> nx test api
