@@ -23,3 +23,7 @@ or
 > nx serve api
 > nx build api
 > nx test api
+
+
+###########Dep Graph#############
+> nx dep-graph
